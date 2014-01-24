@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>DAI, Django Framework</title>
+
+<section  class="chapter" style="background-image:url('http://lsi.ugr.es/dai/imas/web2.png')">
+    <h1>Django Framework</h1>
+
+    <footer><a href="https://swad.ugr.es/?CrsCod=7257">
+    D A I</a></footer>
+</section>
+
+
+<section>
+<h2>Framework &nbsp;<strong>Django</strong></h2>
+<p>
+Es el framework para Python <a href="http://www.bestwebframeworks.com/web-frameworks-usage/#python">m&aacute;s usado</a>
+<br><br>
+<ul style="margin-left:20px;">
+
+<li> - Se pronuncia YAN-GO</li>
+
+<li> - Empezo a desarrollarse como herramienta para <a href="http://www2.ljworld.com/">sitios de prensa</a></li>
+
+<li> - Esta enfocado a sitios basados en bases de datos (p.e. <a href="http://www.ebay.es">ebay</a>)</li>
+
+<li> - Open Source </li>
+
+<li> - Primera versi&oacute;n 2008</li>
+</ul>
+
+</p>
+
+
+<footer class="der">
+<a href="https://www.djangoproject.com/" >
+Django</a>
+</footer> 
+</section>
+
+<section>
+<h2>Arquitectura &nbsp;<code> MVT</code></h2>
+<p>
+<br><br>
+<ul style="margin-left:2px;">
+
+<li> - <strong>M</strong>odel&nbsp; 
+<span style="color:black;font-size:80%;"><br>Interface con la BD (mediante un ORM)</span></li>
+
+<li> - <strong>V</strong>iew &nbsp;
+<span style="color:black;font-size:80%;margin-left:60px;"><br>Lo que
+sale en cada p&aacute;gina</span></li>
+
+<li> - <strong>T</strong>emplate</li>
+
+</ul>
+
+</p>
+
+<img src="http://lsi.ugr.es/dai/imas/mvt.png" class="cen" style="left:45%;top:120px;height:400px;width:480px;box-shadow: 0 0 0 0;">
+
+<footer class="der">
+<a href="https://www.djangoproject.com/" >
+Django</a>
+</footer> 
+</section>
+
+
+<section>
+<h2>M&oacute;dulos</h2>
+<p>
+Django include:
+
+<ul style="margin-left:120px;">
+<li> - Interface de administraci&oacute;n (CRUD)</li>
+<li> - Autentificaci&oacute;n</li>
+<li> - Sesiones</li>
+<li> - Formularios</li>
+<li> - Generaci&oacute;n de RSS</li>
+<li> - Cache</li>
+<li> - Localizaci&oacute;n </li>
+<li> - Internacionalizaci&oacute;n</li>
+</ul>
+</p>
+
+
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/" >
+Django documentation</a>
+</footer> 
+</section>
+
+<section>
+<h2>Pasos para crear una aplicaci&oacute;n</h2>
+<p>
+
+<ul style="margin-left:120px;font-size:70%">
+<li> 1 - Crear un proyecto</li>
+<li> 2 - Crear una apliacaci&oacute;n dentro del proyecto</li>
+<li> 3 - Poner la base de datos (SQL) y dem&aacute;s en <code>settings.py</code></li>
+<li> 4 - Crear la BD</li>
+<li> 5 - Definir el modelo en <code>app/models.py</code></li>
+<li> 6 - A&ntilde;adir los m&oacute;dulos en <code>settings.py</code></li>
+<li> 7 - Crear los mappings para los urls en <code>urls.py</code></li>
+<li> 8 - Definir las vistas en <code>app/views.py</code></li>
+<li> 9 - Aplicar tests	</li>
+<li> 10 - Ponerlo en el servidor web</li>
+</ul>
+</p>
+
+
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/" >
+Tutorial</a>
+</footer> 
+</section>
+
+
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+Desde cero
+<pre class="prettyprint" style="font-size:75%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+ virtualenv ENV1
+ cd ENV1
+ source bin/activate
+ pip install Django  
+ django-admin.py startproject mysite
+ cd mysite/
+ find .
+ python manage.py runserver  # Funciona !
+ geany mysite/settings.py    # geany es un editor  
+ python manage.py syncdb
+ python manage.py startapp bares
+ find bares
+ geany bares/models.py 
+ </pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/" >
+Tutorial part 1</a>
+</footer> 
+</section>
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+Archivo <code>bares/models.py</code>
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+import datetime
+from django.utils import timezone
+from django.db import models
+
+# Create your models here.
+
+class Bares (models.Model):
+	nombre = models.CharField (max_length=200)
+	direccion = models.CharField (max_length=200)
+	fecha_visita = models.DateTimeField ('Fecha visita')
+
+	def __unicode__(self):
+		return self.nombre
+
+    def fue_visitado_recientemente (self):
+        return self.fecha_visita >= timezone.now () - datetime.timedelta (days=1)
+
+
+
+class Tapas(models.Model):
+	bar = models.ForeignKey (Bares)
+	tapa = models.CharField (max_length=200)
+	votos = models.IntegerField (default=0)
+
+	def __unicode__(self):
+		return self.tapa
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/" >
+Tutorial part 1</a>
+</footer> 
+</section>
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+Seguimos
+<pre class="prettyprint" style="font-size:75%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+
+ geany mysyte/settings.py  # para a&ntilde;adir bares en INSTALLED_APPS
+ python manage.py sql bares
+ python manage.py syncdb  # se crea la BD
+
+ </pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/" >
+Tutorial part 1</a>
+</footer> 
+</section>
+
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+Interface de administraci&oacute;n
+<pre class="prettyprint" style="font-size:75%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+
+ python manage.py runserver
+ 
+ # localhost/8000/admin (en espa&ntilde;ol si LANGUAGE = 'es-es')
+ 
+ geany bares/admin.py
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial02/" >
+Tutorial part 2</a>
+</footer> 
+</section>
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+
+Archivo <code>bares/admin.py</code>
+<pre class="prettyprint" style="font-size:75%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+
+from django.contrib import admin
+
+# Register your models here.
+
+from bares.models import Bares
+
+admin.site.register(Bares)
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial02/" >
+Tutorial part 2</a>
+</footer> 
+</section>
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+
+O mejor en  <code>bares/admin.py</code>
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+
+from django.contrib import admin
+from bares.models import Bares, Tapas
+
+class linea_tapas (admin.StackedInline):
+    model = Tapas
+    extra = 2
+
+class BaresAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['nombre']}),
+        (None,               {'fields': ['direccion']}),
+        ('Fecha visita',     {'fields': ['fecha_visita'], 'classes': ['collapse']}),
+    ]
+    inlines = [linea_tapas]
+    list_display = ('nombre', 'direccion', 'fecha_visita')
+    list_filter = ['fecha_visita']
+    search_fields = ['nombre']
+
+admin.site.register(Bares, BaresAdmin)
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial02/" >
+Tutorial part 2</a>
+</footer> 
+</section>
+
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+
+Vistas:
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+
+# En bares/views.py:
+#--------------------
+
+from django.http import HttpResponse
+
+def index (request):
+    return HttpResponse ("Hola desde bares/")
+
+
+# En bares/urls.py
+#-----------------
+
+from django.conf.urls import patterns, url
+
+from bares import views
+
+urlpatterns = patterns ('',
+    url(r'^$', views.index, name='index')
+
+
+# En mysite/urls.py
+#------------------
+
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns ('',
+    url(r'^bares/', include('bares.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+)
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial03/" >
+Tutorial part 3</a>
+</footer> 
+</section>
+
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+
+Vistas, con argumentos de entrada, ahora ponemos:
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+# En bares/views.py:
+#--------------------
+
+from django.http import HttpResponse
+
+def index (request):
+    return HttpResponse ("Hola desde bares/")
+
+def datos (request, bar_id):
+	return HttpResponse("Desde el bar %s." % bar_id)
+
+def tapas (request, bar_id):
+	return HttpResponse("Tapas del bar %s." % bar_id)
+
+def votos (request, bar_id):
+	return HttpResponse("Votos del bar %s." % bar_id)
+
+
+# En bares/urls.py
+#---------------
+
+from django.conf.urls import patterns, url
+
+from bares import views
+
+urlpatterns = patterns('',
+
+    url(r'^$', views.index, name='index'),
+
+    url(r'^(?P&lt;bar_id&gt;\d+)/$', views.datos, name='datos'),
+
+    url(r'^(?P&lt;bar_id&gt;\d+)/tapas/$', views.tapas, name='tapas'),
+
+    url(r'^(?P&lt;bar_id&gt;\d+)/votos/$', views.votos, name='votos'),
+)
+
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial03/" >
+Tutorial part 3</a>
+</footer> 
+</section>
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+
+A&ntilde;adiendo templates, ponemos en <code>bares/views.py</code>
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+from django.http import HttpResponse
+from django.template import RequestContext, loader
+from django.shortcuts import render
+
+from bares.models import Bares
+
+def index(request):
+    lista_ultimos_bares = Bares.objects.all().order_by('-fecha_visita')[:5]
+    context = {'lista_ultimos_bares': lista_ultimos_bares}
+    return render(request, 'bares/index.html', context)
+
+
+def datos (request, bar_id):
+	return HttpResponse("Desde el bar %s." % bar_id)
+
+def tapas (request, bar_id):
+	return HttpResponse("Tapas del bar %s." % bar_id)
+
+def votos (request, bar_id):
+	return HttpResponse("Votos del bar %s." % bar_id)
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial03/" >
+Tutorial part 3</a>
+</footer> 
+</section>
+
+
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+
+A&ntilde;adiendo templates, y ponemos en <code>bares/templates/bares/index.html</code>
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+
+
+{% if lista_ultimos_bares %}
+    &lt;ul&gt;
+    {% for bar in lista_ultimos_bares %}
+        &lt;li&gt;&lt;a href="/bares/{{ bar.id }}/"&gt;{{ bar.nombre }}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+{% else %}
+    &lt;p&gt;No hay bares.&lt;/p&gt;
+{% endif %}
+
+</pre>
+<footer class="der">
+<a href="https://docs.djangoproject.com/en/1.6/intro/tutorial03/" >
+Tutorial part 3</a>
+</footer> 
+</section>
+
+
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+Ponemos los datos de cada bar, previendo un p&aacute;gina de error
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+
+# En bares/views.py
+#------------------
+
+
+from django.shortcuts import render, get_object_or_404
+
+
+def datos (request, bar_id):
+    bar = get_object_or_404 (Bares, pk=bar_id)
+    return render(request, 'bares/datos.html', {'bar': bar})
+    
+
+# En bares/templates/bares/datos.html
+#------------------------------------
+
+&lt;h1&gt;{{ bar.nombre }}&lt;/h1&gt;
+
+&lt;ul&gt;
+{% for tapas in bar.tapas_set.all %}
+	&lt;li&gt;{{ tapas.tapa }}&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+
+
+&lt;a href="/bares/{{ bar.id }}/votos"&gt;Votar las tapas&lt;/a&gt; 
+&lt;br>o as&iacute;&lt;br>
+&lt;a href="{% url 'votos' bar.id %}"&gt;Votar las tapas&lt;/a&gt;
+
+
+    
+</pre>
+<footer class="der">
+Forms en <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial04/" >
+Tutorial part 4</a>
+</footer> 
+</section>
+
+
+<section>
+<h2>Aplicaci&oacute;n 'bares'</h2>
+A&ntilde;adimos <code>easy_map</code> 
+<pre class="prettyprint" style="font-size:65%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+pip install 'geopy >= 0.95'
+pip install django-easy-maps
+geany mysite/settings.py  # Para a&ntilde;adir easy_maps
+python manage.py syncdb
+
+# y ahora se ponen los tags, como indica la documentaci&oacute;n
+geany bares/templates/bares/datos.html
+
+
+    
+</pre>
+<footer class="der">
+<a href="https://www.djangopackages.com/">
+Django Packages</a>
+</footer> 
+</section>
+
+
+
+
+<section>
+<h2>Enlaces</h2>
+<p>
+<br><br>
+<ul style="">
+<li><a href="https://www.djangoproject.com/">Django Project</a></li>
+<li></li>
+<li><a href="http://www.djangobook.com/en/2.0/index.html">Django book</a></li>
+<li></li>
+<li><a href="https://www.djangopackages.com/">Django Packages</a></li>
+</ul>
+</p>
+
+
+<footer class="der">
+<a href="" >
+</a>
+</footer> 
+</section>
+
+
+
+
+<!--
+<section>
+<h2></h2>
+<pre class="prettyprint" style="font-size:75%;border-style:none;width:700px;height:420px;overflow:scroll">
+
+</pre>
+<footer class="der">
+<a href="" >
+</a>
+</footer> 
+</section>
+-->
+
+
+<!-- Style -->
+
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<style>
+  pre {font-size:90%;
+       width: 630px; 
+       line-height:1.7em;
+       margin: auto auto auto 100px;
+	  }	
+  html { background-color: aliceblue; }
+  a { color: blue4; font-size:80%; text-decoration:none;} a:hover {text-decoration: underline;}
+  footer { position: absolute; bottom: 10px; right: 100px; }
+  strong {color: #FF0066} 
+  body {
+      font-family: 'Oswald', arial, serif;
+      background-color: aliceblue;
+      color: black;
+      font-size: 1.6em;
+      background: aliceblue;
+      padding:0 20px 0 20px;
+  }
+  img {box-shadow: 0 0 4px black;}
+ 
+   table {
+	  margin: auto 4% auto auto;	  
+  }
+  
+  td {
+	  padding:5px 20px 5px 20px;
+  }
+  
+  th {
+	background:rgb(248,231,248);  
+  }
+ 
+
+  /* Transition effect */
+  section {
+      -moz-transition: left 400ms linear 0s;
+      -webkit-transition: left 400ms linear 0s;
+      -ms-transition: left 400ms linear 0s;
+      transition: left 400ms linear 0s;
+      background: aliceblue;
+  }
+  section { left: -150%; }
+  section[aria-selected] { left: 0; }
+  section[aria-selected] ~ section { left: +150% }
+
+  .chapter { background-color: aliceblue;}
+  .chapter h1 {line-height: 600px; vertical-align: middle; margin: 0; text-align: center; display: block}
+
+  h1 {
+      margin: 50px 100px 0 100px;
+      font-size: 50px;
+      text-shadow: 0px -1px 0px #000;
+      text-align: left;
+  }
+  h2 {
+      color: rgb(96,0,0);
+      margin: 20px 0 20px 0;
+      font-size: 30px;
+      text-align: center;
+  }
+  ul {
+      margin-top: 20px;
+      color:navy;
+      text-align: left;
+      //border-left: 4px solid white;
+      padding-right: 20%;
+      min-width: 310px;
+      margin-left: 150px;
+      display: inline-block;
+      font-size: 95%;
+  }
+  q, p {
+      margin: 30px auto 0 auto;
+      width: 630px;
+  }
+  q:after {content: ""}
+  q:before {content: ""}
+  q {
+      display: block;
+      margin-top: 140px;
+  }
+  video {
+      position: absolute;
+      top: 210px;
+      width: 260px;
+      left: 445px;
+      box-shadow: 0 0 10px black;
+  }
+  
+  .cen {
+      position: absolute;
+      top: 120px;
+      width: 620px;
+      height: 440px;
+      left: 130px;
+  }
+
+  li {list-style-type: none;
+	  padding: 9px;
+  }
+
+</style>
+
+<!-- {{{{ *****************  DZSlides CORE 2.0b1 *************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+
+<!-- This block of code is not supposed to be edited, but if you want to change the behavior of the slides, feel free to hack it ;) -->
+
+<!-- Default Style -->
+
+<style>
+  * { margin: 0; padding: 0; }
+  details {display: none;}
+  body {
+    width: 800px; height: 600px;
+    margin-left: -380px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+  }
+  html {
+    overflow: hidden;
+  }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 95%; height: 100%;
+  }
+  section[aria-selected] { pointer-events: auto;}
+  body {display: none}
+  body.loaded {display: block}
+</style>
+
+<script>
+  var friendWindows = [];
+  var idx = 1;
+  var slides;
+
+  /* main() */
+
+  window.onload = function() {
+    slides = document.querySelectorAll("body > section");
+    onhashchange();
+    setSlide();
+    document.body.className = "loaded";
+    setupTouchEvents();
+    onresize();
+  }
+
+  /* Handle keys */
+
+  window.onkeydown = function(e) {
+    // Don't intercept keyboard shortcuts
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
+      return;
+    }
+    if ( e.keyCode == 37 // left arrow
+      || e.keyCode == 38 // up arrow
+      || e.keyCode == 33 // page up
+    ) {
+      e.preventDefault();
+      back();
+    }
+    if ( e.keyCode == 39 // right arrow
+      || e.keyCode == 40 // down arrow
+      || e.keyCode == 34 // page down
+    ) {
+      e.preventDefault();
+      forward();
+    }
+
+    if ( e.keyCode == 32) { // space
+        e.preventDefault();
+        toggleContent();
+    }
+  }
+
+  /* Touch Events */
+
+  function setupTouchEvents() {
+    var orgX, newX;
+    var tracking = false;
+
+    var body = document.body;
+    body.addEventListener("touchstart", start, false);
+    body.addEventListener("touchmove", move, false);
+
+    function start(e) {
+      e.preventDefault();
+      tracking = true;
+      orgX = e.changedTouches[0].pageX;
+    }
+
+    function move(e) {
+      if (!tracking) return;
+      newX = e.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          back();
+        }
+      }
+    }
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  window.onresize = function() {
+    var sx = document.body.clientWidth / window.innerWidth;
+    var sy = document.body.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+    document.body.style.MozTransform = transform;
+    document.body.style.WebkitTransform = transform;
+    document.body.style.OTransform = transform;
+    document.body.style.msTransform = transform;
+    document.body.style.transform = transform;
+  }
+  function getDetails(idx) {
+    var s = document.querySelector("section:nth-of-type("+ idx +")");
+    var d = s.querySelector("details");
+    return d?d.innerHTML:"";
+	}
+  window.onmessage = function(e) {
+    msg = e.data;
+    win = e.source;
+    if (msg === "register") {
+      friendWindows.push(win);
+      win.postMessage(JSON.stringify({method: "registered", title: document.title, count: slides.length}), "*");
+      win.postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), "*");
+      return;
+    }
+    if (msg === "back") back();
+    if (msg === "forward") forward();
+    if (msg === "toggleContent") toggleContent();
+    // setSlide(42)
+    var r = /setSlide\((\d+)\)/.exec(msg);
+    if (r) {
+        idx = r[1];
+        setSlide();
+    }
+  }
+
+  /* If a Video is present in this new slide, play it.
+     If a Video is present in the previous slide, stop it. */
+
+  function toggleContent() {
+    var s = document.querySelector("section[aria-selected]");
+    if (s) {
+        var video = s.querySelector("video");
+        if (video) {
+            if (video.ended || video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    }
+  }
+
+  /* If the user change the slide number in the URL bar, jump
+     to this slide. */
+
+  window.onhashchange = function(e) {
+    var newidx = ~~window.location.hash.split("#")[1];
+    if (!newidx) newidx = 1;
+    if (newidx == idx) return;
+    idx = newidx;
+    setSlide();
+  }
+
+  /* Slide controls */
+
+  function back() {
+    if (idx == 1) return;
+    idx--;
+    setSlide();
+  }
+  function forward() {
+    if (idx >= slides.length) return;
+    idx++;
+    setSlide();
+  }
+  function setSlide() {
+    var old = document.querySelector("section[aria-selected]");
+    var next = document.querySelector("section:nth-of-type("+ idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.querySelector("video");
+      if (video) { video.pause(); }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      var video = next.querySelector("video");
+      if (video) { video.play(); }
+    } else {
+      console.warn("No such slide: " + idx);
+      idx = 0;
+      for (var i = 0; i < slides.length; i++) {
+          if (slides[i].hasAttribute("aria-selected")) {
+              idx = i + 1;
+          }
+      }
+    }
+    window.location.hash = idx;
+    for (var i = 0; i < friendWindows.length; i++) {
+        friendWindows[i].postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), "*");
+    }
+  }
+</script>
+<!-- vim: set fdm=marker: }}} -->
