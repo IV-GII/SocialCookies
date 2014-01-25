@@ -11,7 +11,10 @@ from email.MIMEText import MIMEText
 from django.http import HttpResponseRedirect
 
 
+import photos
+
 import os
+
 
 # Create your views here.
 
@@ -31,6 +34,7 @@ def twitter(request):
 		{'path':'/static/socialcookies/bootstrap/',
     	'seccion': 'twitter',
     	'fich':ficheros})
+
 
 def instagram(request):
 	return render_to_response('index.html',
@@ -58,6 +62,7 @@ def mandaCorreo(titulo, contenido):
 	server.login ("socialcookies", "IVgalletas")
 	text = msg.as_string ()
 	server.sendmail(fromaddr, toaddr, text)
+
 
 def contacto(request):
 	if request.method=='POST':

@@ -46,8 +46,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'djangomako.middleware.MakoMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware' 
+    'djangomako.middleware.MakoMiddleware'
 )
 
 TEMPLATE_DIRS = (
