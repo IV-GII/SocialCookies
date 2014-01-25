@@ -14,6 +14,9 @@
 
     <!-- Add custom CSS here -->
     <link href="${path}css/half-slider.css" rel="stylesheet">
+    
+    <!-- Add form CSS here -->
+    <link href="${path}css/styles.css" rel="stylesheet" media="screen">
 
     <script LANGUAGE="JavaScript" src="${path}js/jquery-1.10.2.js"></script>
     <script LANGUAGE="JavaScript" src="${path}js/bootstrap.min.js"></script>
@@ -142,6 +145,31 @@
         % elif seccion == "contacto":
 
             <h1>Contacto</h1>
+            
+            <form class="contact_form" action="#" method="post">
+				<ul>
+					<li>
+						<label for="name">Nombre:</label>
+						<input type="text"  placeholder="Aqu&iacute; tu nombre" required />
+					</li>
+					<li>
+						<label for="email">Email:</label>
+						<input type="email" name="email" placeholder="email@ejemplo.com" required />
+					</li>
+					<li>
+						<label for="website">Sitio Web:</label>
+						<input type="url" name="web" placeholder="" required />
+					</li>
+					<li>
+						<label for="Mensaje">Mensaje:</label>
+						<textarea name="Mensaje" cols="40" rows="6" required ></textarea>
+					</li>
+					<li>
+						<button class="submit" type="submit">Enviar</button>
+					</li>
+				</ul>
+			</form>
+            
         % endif
 
         <div class="row">

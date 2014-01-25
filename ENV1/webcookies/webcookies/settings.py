@@ -50,7 +50,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_DIRS = (
-    '/home/oskyar/proyectosGit/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies',
+    '/home/francisco/Documentos/Facultad/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
+
 )
 
 ROOT_URLCONF = 'webcookies.urls'
