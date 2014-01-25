@@ -7,6 +7,7 @@ from djangomako.shortcuts import render_to_response, render_to_string
 
 #def hola(request):
 	#return HttpResponse("Hola")
-	
+
 def index(request):
-    return render_to_response('index.html',{'user':"hola"})
+    return render_to_response('index.html',
+    	{'path':'/static/socialcookies/bootstrap/'})
