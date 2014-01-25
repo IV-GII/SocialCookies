@@ -43,8 +43,7 @@ def on_callback():
         #Guardamos las imagenes
         photos = []
         for media in recent_media:
-            
-            photos.append('<img src="%s"  onClick="imgFunction(this)" />' % media.images['thumbnail'].url)
+            photos.append('<img src="%s"  onClick="alert(%s)" />' % media.images['thumbnail'].url, media.images['thumbnail'].url)
 
         photos = ''.join(photos)
 
@@ -53,20 +52,13 @@ def on_callback():
         #Guardamos las imagenes
         popular = []
         for media in popular_media:
-            popular.append('<img src="%s"/>' % media.images['thumbnail'].url)
+           popular.append('<img src="%s"  onClick="alert(%s)" />' % ( media.images['thumbnail'].url, media.images['thumbnail'].url ))
+            
         popular = ''.join(popular)
         
+        
         return """
-        <script type='text/javascript'>
-        function imgFunction(objeto){
-        	if(objeto.style.opacity==1){
-		    	objeto.style.opacity=0.4;
-        	}
-        	else{
-        		objeto.style.opacity=1;
-        	}
-		}
-		</script>
+ 
         Photos from Instagram <br>""" + photos + "<br><br> Top photos from Instagram <br>" + popular
        
     except Exception, e:
