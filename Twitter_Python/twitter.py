@@ -17,7 +17,6 @@ api = tweepy.API(auth)
 urls=(
 	'/', 'Home',
 	'/Mostrar','Mostrar',
-	'/Salida','Salida',	
 )
 
 app=web.application(urls, globals())
