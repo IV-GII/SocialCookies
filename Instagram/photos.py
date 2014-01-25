@@ -1,6 +1,16 @@
 import bottle
-from bottle import route, post, run, request
+from bottle import route, post, run, request, SimpleTemplate  # Añadir esto.
+
 from instagram import client, subscriptions
+from web.contrib.template import render_mako
+
+
+render = render_mako(
+        directories=['../ENV1/webcookies/socialcookies/templates/socialcookies'],
+        input_encoding='utf-8',
+        output_encoding='utf-8',
+        )
+
 
 bottle.debug(True)
 
@@ -52,10 +62,13 @@ def on_callback():
         #Guardamos las imagenes
         popular = []
         for media in popular_media:
+
            popular.append('<img src="%s"  onClick="alert(%s)" />' % ( media.images['thumbnail'].url, media.images['thumbnail'].url ))
             
         popular = ''.join(popular)
         
+       # return render.plantilla(Titulo='Desarrollo de Aplicaciones para Internet', Subtitulo='RSS, Google Chart, Maps y Twitter',login=login,cate=cat,cateA=web.websafe(i.categoria),
+       #         losPosts=losPosts, autor='Jose Miguel Lopez', reg=reg,log=log,user=user,error=False, vLink=vectorLink,vtS="",rss=rss)
         
         return """
  
