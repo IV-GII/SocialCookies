@@ -1,4 +1,5 @@
 import tweepy
+from bottle import route,run
 
 consumer_key = 'acisTloOHSws1UA289etVw'
 consumer_secret = 'b9eVS9CeFxIFx3jIwKkeeQPfsO3hlrAdWNOfIItQEgU'
@@ -9,11 +10,37 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-L=[]
 
-for tweet in tweepy.Cursor(api.search,q="hashtag",count=100,result_type="photo",include_entities=True).items():
-    if 'media' in tweet.entities:
-        for image in  tweet.entities['media']:
-		L.append(image['media_url'])
+@route('/')
+def home():
+	tuits=[]
 
+	for tweet in tweepy.Cursor(api.search,q="hashtag",count=100,result_type="photo",include_entities=True).items(100):
+    		if 'media' in tweet.entities:
+        		for image in  tweet.entities['media']:
+				tuits.append("<img src='%s'  onClick='imgFunction(this, \"%s\")' />" % (image['media_url'],image['media_url']))
+	tuits = ''.join(tuits)
 
+	return """
+        <script type='text/javascript'>
+        
+		var elegidos = new Array();
+        
+        function imgFunction(objeto, url){
+        	        	
+        	if(objeto.style.opacity==1){
+		    	objeto.style.opacity=0.4;
+		    	elegidos.push(url);
+		    	console.log(elegidos.valueOf(elegidos.length-1));
+        	}
+        	else{
+        		objeto.style.opacity=1;
+        		indice = elegidos.indexOf(url);
+        		if(indice!=-1)
+        			elegidos.splice(indice,1);
+        	}
+        }
+		</script>
+        Photos from Twitter <br>""" + tuits
+
+run(host='localhost', port=8000, reloader=True)
