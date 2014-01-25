@@ -27,7 +27,6 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -47,6 +46,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'djangomako.middleware.MakoMiddleware'
+)
+
+TEMPLATE_DIRS = (
+    '/home/jaime/pruebas/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies',
 )
 
 ROOT_URLCONF = 'webcookies.urls'
