@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 from instagram import client, subscriptions
-from web.contrib.template import render_mako
+#from web.contrib.template import render_mako
 from django.http import HttpResponse,  HttpResponseRedirect
 from djangomako.shortcuts import render_to_response, render_to_string
 
