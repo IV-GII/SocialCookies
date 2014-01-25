@@ -5,6 +5,8 @@
 sudo apt-get update
 sudo apt-get upgrade
 
+sudo apt-get install build-essential -y
+
 #Instalamos git
 sudo apt-get install git -y
 
@@ -19,6 +21,7 @@ sudo pip install django
 
 #instalacion de modulos de python
 sudo pip install tweepy
+sudo pip install django-mako
 
 #Clonamos el repositorio de GitHub
 git clone https://github.com/IV-GII/SocialCookies.git
@@ -30,4 +33,7 @@ source bin/activate
 cd webcookies
 sudo python manage.py runserver 80
 
+
+#alojamos settings.py ya configurado
+mv ~/settings.py ~/SocialCookies/ENV1/webcookies/webcookies/
 
