@@ -1,3 +1,4 @@
 *.pyc
 *~
 ENV1/webcookies/webcookies/settings.py
+*settings.py
