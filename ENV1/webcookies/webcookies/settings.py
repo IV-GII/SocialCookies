@@ -50,7 +50,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_DIRS = (
-    '/home/francisco/Documentos/Facultad/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
+    '/home/oskyar/proyectosGit/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
 
 )
 
