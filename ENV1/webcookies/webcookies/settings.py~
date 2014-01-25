@@ -46,12 +46,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'djangomako.middleware.MakoMiddleware'
+    'djangomako.middleware.MakoMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware' 
 )
 
 TEMPLATE_DIRS = (
-    '/home/oskyar/proyectosGit/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
-
+    '/home/francisco/Documentos/Facultad/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
 )
 
 ROOT_URLCONF = 'webcookies.urls'
