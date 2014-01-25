@@ -12,10 +12,8 @@ api = tweepy.API(auth)
 L=[]
 
 for tweet in tweepy.Cursor(api.search,q="hashtag",count=100,result_type="photo",include_entities=True).items():
-    #print tweet.text
     if 'media' in tweet.entities:
         for image in  tweet.entities['media']:
-            #print image['media_url']
 		L.append(image['media_url'])
 
 
