@@ -56,68 +56,34 @@
     <div id="myCarousel" class="carousel slide">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
-            <li data-target="#myCarousel" data-slide-to="5"></li>
-            <li data-target="#myCarousel" data-slide-to="6"></li>
+		% for p in range(len(fich)):
+			% if p==0:
+	   		 	<li data-target="#myCarousel" data-slide-to="${p}" class="active"></li>
+	   		% else:
+	   		 	<li data-target="#myCarousel" data-slide-to="${p}"></li>
+	   		% endif
+		% endfor 
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('${path}img/montefrio.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>A Full-Width Image Slider Template</h1>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('${path}img/bike.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 2</h1>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('${path}img/clim.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 3</h1>
-                </div>
-            </div>
-                        <div class="item">
-                <div class="fill" style="background-image:url('${path}img/gym.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 3</h1>
-                </div>
-            </div>
-
-                <div class="item">
-            <div class="fill" style="background-image:url('${path}img/basket.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 3</h1>
-                </div>
-            </div>
-
-
-                <div class="item">
-            <div class="fill" style="background-image:url('${path}img/tennis.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 3</h1>
-                </div>
-
-            </div>
-
-
-                  <div class="item">
-                <div class="fill" style="background-image:url('${path}img/volley.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>Caption 3</h1>
-                </div>
-            </div>
-
-
-
+			% for f in fich:
+				% if f==fich[0]:
+				    <div class="item active">
+				        <div class="fill" style="background-image:url('${path}img-slider/${f}');"></div>
+				        <div class="carousel-caption">
+				            <h1>A Full-Width Image Slider Template</h1>
+				        </div>
+				    </div>
+				% else:
+					<div class="item">
+				        <div class="fill" style="background-image:url('${path}img-slider/${f}');"></div>
+				        <div class="carousel-caption">
+				            <h1>A Full-Width Image Slider Template</h1>
+				        </div>
+				    </div>
+				% endif
+			% endfor 
         </div>
 
         <!-- Controls -->
@@ -150,7 +116,7 @@
             <article class="contacto"> 
             <h1 class="text-center">Contacto</h1>
            
-            <form role="form">
+            <form role="form" method='post'>
               <div class="form-group">
               <label for="name">Nombre</label>
                 <input type="text" class="form-control" id="name" placeholder="Introduzca su nombre" required>
