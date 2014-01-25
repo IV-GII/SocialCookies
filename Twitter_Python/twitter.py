@@ -9,6 +9,7 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
+L=[]
 
 for tweet in tweepy.Cursor(api.search,q="hashtag",count=100,result_type="photo",include_entities=True).items():
     #print tweet.text
