@@ -148,7 +148,12 @@
             <div class="row section">
                 <div class="col-lg-12">
                     <h1>Contacto</h1>
-                    ${formulario}
+                    <form action=contacto/" method="post">
+		                ${formulario}
+		                <input type="hidden" name="csrfmiddlewaretoken" value="${ csrftoken }" />
+		                <br>
+		                <input type="submit" value="Enviar"/>
+                    </form>
                 </div>
             </div>
     % endif
