@@ -2,7 +2,6 @@ import tweepy
 import web
 from web.contrib.template import render_mako
 from web import form
-from bottle import route,run
 
 web.config.debug=False
 
