@@ -39,27 +39,30 @@ def on_callback():
         api = client.InstagramAPI(access_token=access_token)
         
         #Descargamos las imagenes
-        recent_media, next = api.user_recent_media(6)
+        recent_media, next = api.user_recent_media(-1)
         #Guardamos las imagenes
         photos = []
         for media in recent_media:
-            photos.append('<img src="%s"/>' % media.images['thumbnail'].url)
+            
+            photos.append('<img src="%s"  onClick=\"alert(\'gracias por pulsarme\')\" />' % media.images['thumbnail'].url)
+
         photos = ''.join(photos)
-        
+
         #Descargamos las imagenes
-        popular_media = api.media_popular(6)
+        popular_media = api.media_popular(-1)
         #Guardamos las imagenes
         popular = []
         for media in popular_media:
             popular.append('<img src="%s"/>' % media.images['thumbnail'].url)
         popular = ''.join(popular)
         
-        return 'Photos from Instagram <br>' + photos + '<br><br> Top photos from Instagram <br>' + popular
+        return '      Photos from Instagram <br>' + photos + '<br><br> Top photos from Instagram <br>' + popular
     except Exception, e:
         print e
 
 @route('/realtime_callback')
 @post('/realtime_callback')
+
 def on_realtime_callback():
     mode = request.GET.get("hub.mode")
     challenge = request.GET.get("hub.challenge")
