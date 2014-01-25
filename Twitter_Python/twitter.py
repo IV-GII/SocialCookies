@@ -1,85 +1,46 @@
-#Twitter
-
-# -*- coding: utf-8 -*-
-
-from keys import *
-import sys
-import serial
-import codecs
 import tweepy
-import re
-import time
+from bottle import route,run
 
-#Configuracion Arduino
-PORT = 'COM3'
-arduino = serial.Serial(PORT, 9600)
-#
+consumer_key = 'acisTloOHSws1UA289etVw'
+consumer_secret = 'b9eVS9CeFxIFx3jIwKkeeQPfsO3hlrAdWNOfIItQEgU'
+access_token = '2308079432-cDmExMexRNNwAEvIUdrtKQFXgfIA1vQPeM4mLRC'
+access_token_secret = 'eUFjHJf3Wbqzo6NKxJRHE0HapuzNBzLynA8nOTOPygqis'
 
-
-expHashtag="#\w+" #Expresion regular hashtag
-expUsur="@\w+"    #Expresion regular usuario
-
-
-def buscaUser(listTwit):
-	listUsu=[]
-	for i in range (len(listTwit)):
-		if re.match(expUsur,listTwit[i]):
-			listUsu.append(listTwit[i])
-	return listUsu
-
-def buscaHashtag(listTwit):
-	listHash=[]
-	for i in range (len(listTwit)):
-		if re.match(expHashtag,listTwit[i]):
-			listHash.append(listTwit[i])
-	return listHash
-
-
-#Autentifica y crea conexion 
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 
-#api.update_status("#buenasnoxes @josemlp91_TIC @josemlp91_TIC creo que va a dormir bien hoy")
+@route('/')
+def home():
+	tuits=[]
 
-while True:
+	for tweet in tweepy.Cursor(api.search,q="hashtag",count=100,result_type="photo",include_entities=True).items(100):
+    		if 'media' in tweet.entities:
+        		for image in  tweet.entities['media']:
+				tuits.append("<img src='%s'  onClick='imgFunction(this, \"%s\")' />" % (image['media_url'],image['media_url']))
+	tuits = ''.join(tuits)
 
-	result = api.user_timeline("josemlp91_TIC")
+	return """
+        <script type='text/javascript'>
+        
+		var elegidos = new Array();
+        
+        function imgFunction(objeto, url){
+        	        	
+        	if(objeto.style.opacity==1){
+		    	objeto.style.opacity=0.4;
+		    	elegidos.push(url);
+		    	console.log(elegidos.valueOf(elegidos.length-1));
+        	}
+        	else{
+        		objeto.style.opacity=1;
+        		indice = elegidos.indexOf(url);
+        		if(indice!=-1)
+        			elegidos.splice(indice,1);
+        	}
+        }
+		</script>
+        Photos from Twitter <br>""" + tuits
 
-	twit=[]
-
-	for status in result:
-		twit.append(status.text.encode('utf8'))
-
-	ultiTwit=twit[0].split(' ')
-
-	print ultiTwit
-
-	usuarios=(buscaUser(ultiTwit))
-	hashtag=(buscaHashtag(ultiTwit))
-	stringTwitt=""
-	for i in range (len(usuarios)):
-		stringTwitt=stringTwitt + usuarios[i]
-
-	print (stringTwitt)
-
-	if '#ledON' in hashtag:
-		arduino.write('H')
-
-	elif '#ledOFF' in hashtag:
-		arduino.write('L')
-
-	elif '#queVes' in hashtag:
-		val=arduino.readline() # turns LED ON
-		print(val)
-		stringTwitt=stringTwitt+ " mis sensores dicen:  "+ str(val)
-		api.update_status(stringTwitt)
-
-
- 	time.sleep(10)
-
-
-
-
+run(host='localhost', port=8000, reloader=True)
