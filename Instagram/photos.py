@@ -39,24 +39,36 @@ def on_callback():
         api = client.InstagramAPI(access_token=access_token)
         
         #Descargamos las imagenes
-        recent_media, next = api.user_recent_media(-1)
+        recent_media, next = api.user_recent_media(6)
         #Guardamos las imagenes
         photos = []
         for media in recent_media:
             
-            photos.append('<img src="%s"  onClick=\"alert(\'gracias por pulsarme\')\" />' % media.images['thumbnail'].url)
+            photos.append('<img src="%s"  onClick="imgFunction(this)" />' % media.images['thumbnail'].url)
 
         photos = ''.join(photos)
 
         #Descargamos las imagenes
-        popular_media = api.media_popular(-1)
+        popular_media = api.media_popular(6)
         #Guardamos las imagenes
         popular = []
         for media in popular_media:
             popular.append('<img src="%s"/>' % media.images['thumbnail'].url)
         popular = ''.join(popular)
         
-        return '      Photos from Instagram <br>' + photos + '<br><br> Top photos from Instagram <br>' + popular
+        return """
+        <script type='text/javascript'>
+        function imgFunction(objeto){
+        	if(objeto.style.opacity==1){
+		    	objeto.style.opacity=0.4;
+        	}
+        	else{
+        		objeto.style.opacity=1;
+        	}
+		}
+		</script>
+        Photos from Instagram <br>""" + photos + "<br><br> Top photos from Instagram <br>" + popular
+       
     except Exception, e:
         print e
 
