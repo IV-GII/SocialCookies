@@ -11,7 +11,7 @@ Cuenta de Twitter para el protecto: @CookiesCommits
 Algunos productos parecidos:
 
 http://www.wallgram.com/ 
-# Crea fondos, poster y carcasas para el movil
+Crea fondos, poster y carcasas para el movil
 
 http://printstud.io/      # 
 
