@@ -21,6 +21,26 @@
     <script LANGUAGE="JavaScript" src="${path}js/jquery-1.10.2.js"></script>
     <script LANGUAGE="JavaScript" src="${path}js/bootstrap.min.js"></script>
 
+    <script type='text/javascript'>
+        var elegidos = new Array();
+        
+        function imgFunction(objeto, url){
+                        
+            if(objeto.style.opacity==1){
+                objeto.style.opacity=0.4;
+                elegidos.push(url);
+            }
+            else{
+                objeto.style.opacity=1;
+                indice = elegidos.indexOf(url);
+                if(indice!=-1)
+                    elegidos.splice(indice,1);
+            }
+        }
+    </script>
+
+
+
 </head>
 
 <body>
@@ -146,6 +166,23 @@
 
             <h1>Instagram</h1>
 
+                    <%
+                    p=len(photos)
+                    %>
+                    
+                    <div class="row">
+                    % for i in range (4):
+
+                        <div class="col-xs-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="${photos[i]}" alt="imagen1">
+                            </a>
+                        </div>
+
+                    % endfor
+
+                    </div>
+
         % elif seccion == "contacto":
             <article class="contacto"> 
             <h1 class="text-center">Contacto</h1>
@@ -167,6 +204,8 @@
             </form>
             </article>
         % endif
+
+
 
         <div class="row">
 			<div class="col-xs-6 col-md-3">

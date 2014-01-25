@@ -17,7 +17,7 @@ bottle.debug(True)
 CONFIG = {
     'client_id': '28aecdf96ffd477297887aad3fcf624e',
     'client_secret': '3b6ffb3a32674b63acb1c0dcbc0e1912',
-    'redirect_uri': 'http://localhost:8515/oauth_callback'
+    'redirect_uri': 'http://localhost:8000/oauth_callback'
 }
 
 unauthenticated_api = client.InstagramAPI(**CONFIG)
@@ -53,7 +53,10 @@ def on_callback():
         #Guardamos las imagenes
         photos = []
         for media in recent_media:
-            photos.append('<img src="%s"  onClick="alert(%s)" />' % media.images['thumbnail'].url, media.images['thumbnail'].url)
+
+            
+            photos.append("<img src='%s'  onClick='imgFunction(this, \"%s\")' />" % (media.images['thumbnail'].url, media.images['thumbnail'].url) )
+
 
         photos = ''.join(photos)
 
@@ -63,16 +66,14 @@ def on_callback():
         popular = []
         for media in popular_media:
 
-           popular.append('<img src="%s"  onClick="alert(%s)" />' % ( media.images['thumbnail'].url, media.images['thumbnail'].url ))
-            
+            popular.append("<img src='%s'  onClick='imgFunction(this, \"%s\")' />" % (media.images['thumbnail'].url, media.images['thumbnail'].url) )
+
         popular = ''.join(popular)
         
        # return render.plantilla(Titulo='Desarrollo de Aplicaciones para Internet', Subtitulo='RSS, Google Chart, Maps y Twitter',login=login,cate=cat,cateA=web.websafe(i.categoria),
        #         losPosts=losPosts, autor='Jose Miguel Lopez', reg=reg,log=log,user=user,error=False, vLink=vectorLink,vtS="",rss=rss)
         
-        return """
- 
-        Photos from Instagram <br>""" + photos + "<br><br> Top photos from Instagram <br>" + popular
+        return render.plantilla(photos=photos, popular=popular)
        
     except Exception, e:
         print e
@@ -94,4 +95,4 @@ def on_realtime_callback():
         except subscriptions.SubscriptionVerifyError:
             print "Signature mismatch"
 
-run(host='localhost', port=8515, reloader=True)
+run(host='localhost', port=8000, reloader=True)

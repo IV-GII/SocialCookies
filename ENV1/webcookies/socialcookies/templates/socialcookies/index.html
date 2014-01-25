@@ -16,10 +16,31 @@
     <link href="${path}css/half-slider.css" rel="stylesheet">
     
     <!-- Add form CSS here -->
-    <link href="${path}css/styles.css" rel="stylesheet" media="screen">
+    <link href="${path}css/estilo.css" rel="stylesheet" media="screen">
 
     <script LANGUAGE="JavaScript" src="${path}js/jquery-1.10.2.js"></script>
     <script LANGUAGE="JavaScript" src="${path}js/bootstrap.min.js"></script>
+
+    <script type='text/javascript'>
+        var elegidos = new Array();
+        
+        function imgFunction(objeto, url){
+                        
+            if(objeto.style.opacity==1){
+                objeto.style.opacity=0.4;
+                elegidos.push(url);
+            }
+            else{
+                objeto.style.opacity=1;
+                indice = elegidos.indexOf(url);
+                if(indice!=-1)
+                    elegidos.splice(indice,1);
+            }
+        }
+    </script>
+
+
+
 
 </head>
 
@@ -145,6 +166,33 @@
         % elif seccion == "instagram":
 
             <h1>Instagram</h1>
+
+            <%
+            p=len(photos)
+            p_popu=len(popular)
+            %>
+            
+            <div class="row">
+                % for i in range(p):
+                    <% foto= photos[i] %>
+                    <div class="col-xs-6 col-md-3">
+                        <a class="thumbnail">
+                            <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
+                        </a>
+                    </div>
+                % endfor
+            </div>
+
+            <div class="row">
+                % for i in range(p_popu):
+                    <% foto= popular[i] %>
+                    <div class="col-xs-6 col-md-3">
+                        <a class="thumbnail">
+                            <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
+                        </a>
+                    </div>
+                % endfor
+            </div>
 
         % elif seccion == "contacto":
             <article class="contacto"> 
