@@ -26,6 +26,9 @@ sudo pip install django-mako
 #Clonamos el repositorio de GitHub
 git clone https://github.com/IV-GII/SocialCookies.git
 
+#alojamos settings.py ya configurado
+mv ~/settings.py ~/SocialCookies/ENV1/webcookies/webcookies/
+
 #nos movemos a la carpeta y lo lanzamos
 
 cd SocialCookies/ENV1
@@ -33,7 +36,4 @@ source bin/activate
 cd webcookies
 sudo python manage.py runserver 80
 
-
-#alojamos settings.py ya configurado
-mv ~/settings.py ~/SocialCookies/ENV1/webcookies/webcookies/
 
