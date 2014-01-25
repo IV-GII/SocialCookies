@@ -7,7 +7,7 @@ bottle.debug(True)
 CONFIG = {
     'client_id': '28aecdf96ffd477297887aad3fcf624e',
     'client_secret': '3b6ffb3a32674b63acb1c0dcbc0e1912',
-    'redirect_uri': 'http://localhost:8515/oauth_callback'
+    'redirect_uri': 'http://localhost:8000/oauth_callback'
 }
 
 unauthenticated_api = client.InstagramAPI(**CONFIG)
@@ -44,7 +44,7 @@ def on_callback():
         photos = []
         for media in recent_media:
             
-            photos.append('<img src="%s"  onClick="imgFunction(this)" />' % media.images['thumbnail'].url)
+            photos.append("<img src='%s'  onClick='imgFunction(this, \"%s\")' />" % (media.images['thumbnail'].url, media.images['thumbnail'].url) )
 
         photos = ''.join(photos)
 
@@ -53,19 +53,28 @@ def on_callback():
         #Guardamos las imagenes
         popular = []
         for media in popular_media:
-            popular.append('<img src="%s"/>' % media.images['thumbnail'].url)
+            popular.append("<img src='%s'  onClick='imgFunction(this, \"%s\")' />" % (media.images['thumbnail'].url, media.images['thumbnail'].url) )
         popular = ''.join(popular)
         
         return """
         <script type='text/javascript'>
-        function imgFunction(objeto){
+        
+		var elegidos = new Array();
+        
+        function imgFunction(objeto, url){
+        	        	
         	if(objeto.style.opacity==1){
 		    	objeto.style.opacity=0.4;
+		    	elegidos.push(url);
+		    	console.log(elegidos.valueOf(elegidos.length-1));
         	}
         	else{
         		objeto.style.opacity=1;
+        		indice = elegidos.indexOf(url);
+        		if(indice!=-1)
+        			elegidos.splice(indice,1);
         	}
-		}
+        }
 		</script>
         Photos from Instagram <br>""" + photos + "<br><br> Top photos from Instagram <br>" + popular
        
@@ -89,4 +98,4 @@ def on_realtime_callback():
         except subscriptions.SubscriptionVerifyError:
             print "Signature mismatch"
 
-run(host='localhost', port=8515, reloader=True)
+run(host='localhost', port=8000, reloader=True)
