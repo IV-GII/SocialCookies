@@ -174,89 +174,81 @@
 
         <div class="container">
         </div>
-    % elif seccion == "twitter":
+	% elif seccion == "twitter":
         <div class="container">
             <div class="row section">
                 <div class="col-lg-12">
                     <h1>Twitter</h1>
                 </div>
             </div>
-
+		</div>
 
  
-
-        % elif seccion == "instagram":
-
-            
-            <h1>Instagram</h1>
-            <h3>Seleccione sus fotos preferidas y nos encargaremos de hacer las galletas mas originales y sabrosas que nunca haya visto</h3>
-            <%
-            p=len(photos)
-            p_popu=len(popular)
-            %>
-            
-                    
-                
-
-                    <div class="row">
-                             <div class="span4">   
-                        <h4>Sus fotos personales  </h4>
-                        % for i in range(p):
-                            <% foto= photos[i] %>
-                            <div class="col-xs-6 col-md-3">
-                                <a class="thumbnail">
-                                    <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
-                                </a>
-                            </div>
-                        % endfor
-                         </div>
-
-                
-
-                   
-                      <div class="span4">
-                         <h4>Las fotos mas populares y molonas de la red  </h4>
-                        % for i in range(p_popu):
-                            <% foto= popular[i] %>
-                            <div class="col-xs-4 col-md-4">
-                                <a class="thumbnail">
-                                    <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
-                                </a>
-                            </div>
-                        % endfor
-                    
-                    </div>
-                     
-
-                          <div class="row">
-
-                                  
-              <h2>Gestion de pedido</h2>
-
-                                                           
-                                <h4>Modelo de galletas  </h4>          <!-- Apuntar enlaces a imagenes directamente -->
-                                    <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta1.png?raw=true'  onClick='galletaFunction(this, 1)' />
-                                    <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta2.png?raw=true'  onClick='galletaFunction(this, 2)' />
-                                    <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta3.png?raw=true'  onClick='galletaFunction(this, 3)' />
-                                    <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta4.png?raw=true'  onClick='galletaFunction(this, 4)' />
-                                    <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta5.png?raw=true'  onClick='galletaFunction(this, 5)' />
-                                    <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta6.png?raw=true'  onClick='galletaFunction(this, 6)' />
-            <div>
-
-              <p>Seleccione el modelo de galleta que mas le guste, solo se permite un modelo (para cambiar de modelo debe deseleccionar primero el modelo marcado) </p>
-             
-            </div><!--/span-->
-
-
-
+	% elif seccion == "instagram":
+		<div class="container">
+            <div class="row section">
+                <div class="col-lg-12">
+				    <h1>Instagram</h1>
+				    <h3>Seleccione sus fotos preferidas y nos encargaremos de hacer las galletas mas originales y sabrosas que nunca haya visto</h3>
+				    <%
+				    p=len(photos)
+				    p_popu=len(popular)
+				    %>
+				    
+					<div class="row">
+						<div class="span4">   
+						    <h4>¿Cu&aacute;l de sus fotos quiere comerse?</h4>
+						    % for i in range(p):
+						        <% foto= photos[i] %>
+						        <div class="col-xs-6 col-md-3">
+						            <a class="thumbnail">
+						                <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
+						            </a>
+						        </div>
+						    % endfor
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="span4">
+						     <h4>¿Cu&aacute;l de las fotos mas populares y molonas de la red quiere comerse?</h4>
+						    % for i in range(p_popu):
+						        <% foto= popular[i] %>
+						        <div class="col-xs-4 col-md-4">
+						            <a class="thumbnail">
+						                <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
+						            </a>
+						        </div>
+						    % endfor
+						</div>
+					</div>		 
+					
+					<div class="row">				                                                   
+				        <h4>¿En qu&eacute; tipo de galleta las quieres?</h4>          <!-- Apuntar enlaces a imagenes directamente -->
+				        
+			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta1.png?raw=true'  onClick='galletaFunction(this, 1)' />
+			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta2.png?raw=true'  onClick='galletaFunction(this, 2)' />
+			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta3.png?raw=true'  onClick='galletaFunction(this, 3)' />
+					</div>         
+					<div class="row">	             
+			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta4.png?raw=true'  onClick='galletaFunction(this, 4)' />
+			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta5.png?raw=true'  onClick='galletaFunction(this, 5)' />
+			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta6.png?raw=true'  onClick='galletaFunction(this, 6)' />
+				             
+					    <div>
+					    <p>Seleccione el modelo de galleta que mas le guste, solo se permite un modelo (para cambiar de modelo debe deseleccionar primero el modelo marcado) </p>
+					    </div><!--/span-->
+					</div>
+				
+				    <div class="hero-unit">
+				                <br><br>
+				           <p><a class="btn btn-primary btn-large"  onClick='mostrarPedido()'>  Gestionar pedido   </a></p>
+					</div>
                 </div>
-
-                    <div class="hero-unit">
-                        <br><br>
-                   <p><a class="btn btn-primary btn-large"  href='pedido.html'>  Gestionar pedido   </a></p>
-                </div>
-
-        % elif seccion == "contacto":
+            </div>
+		</div>
+	
+	% elif seccion == "contacto":
             <div class="container">
             <div class="row section">
                 <div class="col-lg-12">
