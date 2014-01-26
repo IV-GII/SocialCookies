@@ -14,9 +14,6 @@ Para dar soporte a la aplicación hemos montado una máquina virtual en Azure co
 
 La máquina se ha creado desde el panel web de Azure y se han establecido extremos de conexión para ftp http y django por los siguientes puertos:
 
-
-	(captura de pantalla de configuración de la máquina virtual y puertos de conexión)
-
 Podemos ver como actualizamos la máquina virtual, la instalación de Python y los módulos que vamos a utilizar en el siguiente [script]
 (https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh). 
 
@@ -28,10 +25,8 @@ Cuando el usuario entra en la aplicación puede acceder a sus fotos iniciando se
 
 
 
+>Nota: Para alojar la aplicación en otro servidor, tendremos que cambiar la ruta de "TEMPLATE_DIR" en el fichero /SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies/settings.py
 
-
-
-
-
+TEMPLATE_DIR = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
 
 
