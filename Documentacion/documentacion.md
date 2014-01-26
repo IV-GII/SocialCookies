@@ -15,7 +15,7 @@ Para dar soporte a la aplicación hemos montado una máquina virtual en Azure co
 
 La máquina se ha creado desde el panel web de Azure y se han establecido extremos de conexión para ftp http y django por los siguientes puertos:
 
-	(captura de pantalla de configuración de la máquina virtual  y puertos de conexión)
+![Máquina virtual extremos](https://raw.github.com/IV-GII/SocialCookies/master/Documentacion/img/mv_extremos.png)
 
 Podemos ver el script de configuración [aquí](https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh).
 
@@ -29,6 +29,9 @@ La creación de la máquina virtual por el web panel la podemos ver en la [prác
 
 >Nota: Para alojar la aplicación en otro servidor, tendremos que cambiar la ruta de "TEMPLATE_DIR" en el fichero /SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies/settings.py
 
-TEMPLATE_DIR = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
+>TEMPLATE_DIR = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
+
+
+
 
 
