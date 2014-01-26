@@ -49,6 +49,11 @@ MIDDLEWARE_CLASSES = (
     'djangomako.middleware.MakoMiddleware'
 )
 
+#########
+#NOTA: Cambiar la ruta para alojar la aplicación en otro servidor
+#
+#TEMPLATE_DIRS = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
+#########
 TEMPLATE_DIRS = (
     '/home/jaime/IV/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
 )
