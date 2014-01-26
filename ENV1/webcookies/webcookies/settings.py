@@ -50,12 +50,12 @@ MIDDLEWARE_CLASSES = (
 )
 
 #########
-#NOTA: Cambiar la ruta para alojar la aplicación en otro servidor
+#NOTA: Cambiar la ruta para alojar la aplicacion en otro servidor
 #
 #TEMPLATE_DIRS = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
 #########
 TEMPLATE_DIRS = (
-    '/home/jaime/IV/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
+    '/home/francisco/Documentos/Facultad/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
 )
 
 ROOT_URLCONF = 'webcookies.urls'
@@ -92,4 +92,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+#gmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'socialcookiesiv@gmail.com'
+EMAIL_HOST_PASSWORD = 'IVsocialcookies'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
