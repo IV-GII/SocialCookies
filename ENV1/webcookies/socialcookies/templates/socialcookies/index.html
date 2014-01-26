@@ -21,9 +21,10 @@
     <script LANGUAGE="JavaScript" src="${path}js/jquery-1.10.2.js"></script>
     <script LANGUAGE="JavaScript" src="${path}js/bootstrap.min.js"></script>
 
-
     <script type='text/javascript'>
+        
         var elegidos = new Array();
+        var diseGalleta=0;
         
         function imgFunction(objeto, url){
                         
@@ -38,6 +39,50 @@
                     elegidos.splice(indice,1);
             }
         }
+
+            function galletaFunction(objeto, indi){
+            
+                if (diseGalleta==0) {     
+                if(objeto.style.opacity==1){
+                    objeto.style.opacity=0.4;
+                    diseGalleta=indi;
+                }
+            
+
+           
+                else{
+                    objeto.style.opacity=1;
+                    diseGalleta=0;
+                }
+
+            }
+
+            else { 
+                 if(objeto.style.opacity==0.4){
+                    objeto.style.opacity=1;
+                    diseGalleta=0;
+
+                 }
+
+            
+
+        }
+    }
+
+    function mostrarPedido(){
+        var mensaje=' ';
+
+        for (var i=0;i<elegidos.length; i++){
+             mensaje=mensaje.concat("Imagen galleta" + i + ":   \n");
+             mensaje = mensaje.concat(elegidos[i]);
+             
+        }
+
+        mensaje=mensaje.concat("\n Modelo galleta:   " +  diseGalleta );
+
+        alert(mensaje);
+    }
+
     </script>
 
 
@@ -82,6 +127,7 @@
         <!-- /.container -->
     </nav>
 
+    
 
     % if seccion == "index":
     <div id="myCarousel" class="carousel slide">
@@ -141,41 +187,81 @@
 
         % elif seccion == "instagram":
 
+            
             <h1>Instagram</h1>
-
+            <h3>Seleccione sus fotos preferidas y nos encargaremos de hacer las galletas mas originales y sabrosas que nunca haya visto</h3>
             <%
             p=len(photos)
             p_popu=len(popular)
             %>
             
-            <div class="row">
-                % for i in range(p):
-                    <% foto= photos[i] %>
-                    <div class="col-xs-6 col-md-3">
-                        <a class="thumbnail">
-                            <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
-                        </a>
-                    </div>
-                % endfor
-            </div>
+                    
+                
 
-            <div class="row">
-                % for i in range(p_popu):
-                    <% foto= popular[i] %>
-                    <div class="col-xs-6 col-md-3">
-                        <a class="thumbnail">
-                            <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
-                        </a>
+                    <div class="row">
+                             <div class="span4">   
+                        <h4>Sus fotos personales  </h4>
+                        % for i in range(p):
+                            <% foto= photos[i] %>
+                            <div class="col-xs-6 col-md-3">
+                                <a class="thumbnail">
+                                    <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
+                                </a>
+                            </div>
+                        % endfor
+                         </div>
+
+                
+
+                   
+                      <div class="span4">
+                         <h4>Las fotos mas populares y molonas de la red  </h4>
+                        % for i in range(p_popu):
+                            <% foto= popular[i] %>
+                            <div class="col-xs-4 col-md-4">
+                                <a class="thumbnail">
+                                    <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
+                                </a>
+                            </div>
+                        % endfor
+                    
                     </div>
-                % endfor
-            </div>
+                     
+
+                          <div class="row">
+
+                                  
+              <h2>Gestion de pedido</h2>
+
+                                                           
+                                <h4>Modelo de galletas  </h4>          <!-- Apuntar enlaces a imagenes directamente -->
+                                    <img src='../static/socialcookies/boostrap/img/Galletas/Galleta1.png'  onClick='galletaFunction(this, 1)' />
+                                    <img src='../static/socialcookies/boostrap/img/Galletas/Galleta2.png'  onClick='galletaFunction(this, 2)' />
+                                    <img src='../static/socialcookies/boostrap/img/Galletas/Galleta3.png'  onClick='galletaFunction(this, 3)' />
+                                    <img src='../static/socialcookies/boostrap/img/Galletas/Galleta4.png'  onClick='galletaFunction(this, 4)' />
+                                    <img src='../static/socialcookies/boostrap/img/Galletas/Galleta5.png'  onClick='galletaFunction(this, 5)' />
+                                    <img src='../static/socialcookies/boostrap/img/Galletas/Galleta6.png'  onClick='galletaFunction(this, 6)' />
+            <div>
+
+              <p>Seleccione el modelo de galleta que mas le guste, solo se permite un modelo (para cambiar de modelo debe deseleccionar primero el modelo marcado) </p>
+             
+            </div><!--/span-->
+
+
+
+                </div>
+
+                    <div class="hero-unit">
+                        <br><br>
+                   <p><a class="btn btn-primary btn-large"  onClick='mostrarPedido()'>  Gestionar pedido   </a></p>
+                </div>
 
         % elif seccion == "contacto":
             <div class="container">
             <div class="row section">
                 <div class="col-lg-12">
                     <h1>Contacto</h1>
-                    <form action=contacto/" method="post">
+                    <form action="contacto/" method="post">
 		                ${formulario}
 		                <input type="hidden" name="csrfmiddlewaretoken" value="${ csrftoken }" />
 		                <br>
