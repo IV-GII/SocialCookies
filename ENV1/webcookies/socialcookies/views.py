@@ -21,7 +21,7 @@ import os
 #def hola(request):
 	#return HttpResponse("Hola")
 	
-ficheros = os.listdir('/home/francisco/Documentos/Facultad/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
+ficheros = os.listdir('/home/jaime/IV/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
 
 def index(request):
     return render_to_response('index.html',
