@@ -14,10 +14,14 @@ Para dar soporte a la aplicación hemos montado una máquina virtual en Azure co
 
 La máquina se ha creado desde el panel web de Azure y se han establecido extremos de conexión para ftp http y django por los siguientes puertos:
 
-Podemos ver como actualizamos la máquina virtual, la instalación de Python y los módulos que vamos a utilizar en el siguiente [script]
-(https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh). 
+![Máquina virtual extremos](https://raw.github.com/IV-GII/SocialCookies/master/Documentacion/img/mv_extremos.png)
 
-La creación de la máquina virtual por el web panel la podemos ver en la [práctica3](https://github.com/oskyar/Practica3-VirtualMachine/blob/master/documentacion/documentacion.md#1-empezaremos-creando-la-m%C3%A1quina-virtual-desde-la-p%C3%A1gina-de-azure-ya-que-es-m%C3%A1s-atractivo-e-intuitivo) de la asignatura.
+Podemos ver el script de configuración [aquí](https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh).
+
+La creación de la máquina virtual por el web panel la podemos ver en la [práctica3](https://github.com/oskyar/Practica3-VirtualMachine/blob/master/documentacion/documentacion.md#1-empezaremos-creando-la-m%C3%A1quina-virtual-desde-la-p%C3%A1gina-de-azure-ya-que-es-m%C3%A1s-atractivo-e-intuitivo) de la asignatura. 
+
+Podemos ver como actualizamos la máquina virtual, la instalación de Python y los módulos que vamos a utilizar en el siguiente [script](https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh). 
+
 
 ##Uso de la aplicación
 
@@ -25,8 +29,11 @@ Cuando el usuario entra en la aplicación puede acceder a sus fotos iniciando se
 
 
 
->Nota: Para alojar la aplicación en otro servidor, tendremos que cambiar la ruta de "TEMPLATE_DIR" en el fichero /SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies/settings.py
+	Nota: Para alojar la aplicación en otro servidor, tendremos que cambiar la ruta de "TEMPLATE_DIR" en el fichero /SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies/settings.py
 
-TEMPLATE_DIR = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
+	TEMPLATE_DIR = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
+
+
+
 
 
