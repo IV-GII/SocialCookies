@@ -9,7 +9,7 @@ import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from django.http import HttpResponseRedirect
-
+from django.core.mail import EmailMessage
 
 import photos
 
@@ -21,7 +21,7 @@ import os
 #def hola(request):
 	#return HttpResponse("Hola")
 	
-ficheros = os.listdir('/home/jaime/IV/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
+ficheros = os.listdir('/home/francisco/Documentos/Facultad/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
 
 def index(request):
     return render_to_response('index.html',
@@ -38,24 +38,27 @@ def twitter(request):
     	
 def mandaCorreo(titulo, contenido):
 
-	fromaddr = "socialcookies@hotmail.com"
-	toaddr   = "socialcookies@hotmail.com"
+	#fromaddr = "socialcookies@gmail.com"
+	#toaddr   = "socialcookies@gmail.com"
 
-	msg = MIMEMultipart ()
-	msg['From']    = fromaddr
-	msg['To']         = toaddr
-	msg['Subject'] = titulo
+	#msg = MIMEMultipart ()
+	#msg['From']    = fromaddr
+	#msg['To']         = toaddr
+	#msg['Subject'] = titulo
 
-	body = contenido
-	msg.attach (MIMEText (body, 'plain'))
+	#body = contenido
+	#msg.attach (MIMEText (body, 'plain'))
 
-	server = smtplib.SMTP ('smtp.live.com', 25)
-	server.ehlo ()
-	server.starttls ()   # Para conexion cifrada
-	server.ehlo ()
-	server.login ("socialcookies", "IVgalletas")
-	text = msg.as_string ()
-	server.sendmail(fromaddr, toaddr, text)
+	#server = smtplib.SMTP ('smtp.gmail.com', 587)
+	#server.ehlo ()
+	#server.starttls ()   # Para conexion cifrada
+	#server.ehlo ()
+	#server.login ("socialcookies", "IVsocialcookies")
+	#text = msg.as_string ()
+	#server.sendmail(fromaddr, toaddr, text)
+	
+	email = EmailMessage(titulo, contenido, to=['socialcookiesiv@gmail.com'])
+	email.send()
 
 
 def contacto(request):
@@ -64,9 +67,7 @@ def contacto(request):
 		if formulario.is_valid():
 			titulo = 'Mensaje de contacto desde \"Social Cookies\"'
 			contenido = formulario.cleaned_data['mensaje'] + "\n"
-			contenido += 'Comunicarse a : ' #+ formulario.cleaned_data['correo']
-			#correo = EmailMessage(titulo, contenido, to=['oskyar@gmail.com'])
-			#correo.send()
+			contenido += 'Comunicarse a : ' + formulario.cleaned_data['correo']
 			mandaCorreo(titulo, contenido)
 			return HttpResponseRedirect('/socialcookies')
 	else:
@@ -74,12 +75,28 @@ def contacto(request):
 
 	return render_to_response('index.html',
 		{'path':'/static/socialcookies/bootstrap/',
-    	'seccion': 'contacto',
-    	'formulario':formulario,
-    	"csrftoken": csrf(request)["csrf_token"],
-    	'fich':ficheros})
-    
-
+		'seccion': 'contacto',
+		'formulario':formulario,
+		"csrftoken": csrf(request)["csrf_token"],
+		'fich':ficheros})
     	
-
-
+#def pedido(request):
+#	if request.method=='POST':
+#		formu = PedidoForm(request.POST)
+#		if formu.is_valid():
+#			titulo = 'Mensaje de contacto desde \"Social Cookies\"'
+#			contenido = 'Cliente: ' + formu.cleaned_data['nombre'] + "\n"
+#			contenido += 'Direccion' + formu.cleaned_data['direccion'] + "\n"
+#			contenido += 'Telefono' + formu.cleaned_data['telefono'] + "\n"
+#			contenido += 'Correo' + formu.cleaned_data['correo']
+#			mandaCorreo(titulo, contenido)
+#			return HttpResponseRedirect('/socialcookies')
+#	else:
+#		formu = PedidoForm()
+#
+#	return render_to_response('index.html',
+#		{'path':'/static/socialcookies/bootstrap/',
+#		'seccion': 'contacto',
+#		'formu':formu,
+#		"csrftoken": csrf(request)["csrf_token"],
+#		'fich':ficheros})
