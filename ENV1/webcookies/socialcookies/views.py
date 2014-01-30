@@ -29,7 +29,9 @@ def index(request):
     return render_to_response('index.html',
     	{'path':'/static/socialcookies/bootstrap/',
     	'seccion': 'index',
-    	'fich':ficheros})
+    	'fich':ficheros,
+    	'fotos':os.listdir('./socialcookies/static/socialcookies/bootstrap/img/authors')
+    	})
 
 def twitter(request):
 	return render_to_response('index.html',

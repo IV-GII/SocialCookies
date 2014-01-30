@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -20,7 +20,7 @@
             
     <!-- Add instagram CSS here -->
     <link href="${path}css/style.css" rel="stylesheet">
-            
+    
     
     <!-- Custom Google Web Font --> <!-- En bootstrap.css --> <!-- 400 normal, 700 bold -->
     <link href="http://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet" type="text/css" />
@@ -32,49 +32,55 @@
     <script type='text/javascript'>
         
         var elegidos = new Array();
-        var tipo_galleta =  new Array();
-        
-        function imgFunction(objeto, url){               
-         indice = elegidos.indexOf(url);
-                     
-         if( indice == -1 ){
-                 //objeto.style.border="4px solid #00bfa8";
-                 objeto.style.opacity=0.4;
-             elegidos.push(url);
-         } 
-         else{
-                 //objeto.style.border="none";
-             objeto.style.opacity=1;
-             elegidos.splice(indice,1);
-         }
-        }
-    
-        function galletaFunction(objeto, url){
-                                                
-	        if( tipo_galleta.length == 0){
-	            objeto.style.opacity=0.4;
-	            tipo_galleta.push(url);
-	        }                        
-	        else { 
-	            objeto.style.opacity=1;
-	            tipo_galleta.splice(0,1);
-	        }
-        }
-    
-        function mostrarPedido(){
-	        var mensaje=' ';
+	    var tipo_galleta =  new Array();
+	    
+	    function imgFunction(objeto, url){       	
+			indice = elegidos.indexOf(url);
+				    
+			if( indice == -1 ){
+				//objeto.style.border="4px solid #00bfa8";
+				objeto.style.opacity=0.4;
+			    elegidos.push(url);
+			} 
+			else{
+				//objeto.style.border="none";
+			    objeto.style.opacity=1;
+			    elegidos.splice(indice,1);
+			}
+	    }
 	
-	        for (var i=0;i<elegidos.length; i++){
-	             mensaje = mensaje.concat("Galleta" + i + ":\n");
-	             mensaje = mensaje.concat(elegidos[i]);
-	             mensaje = mensaje.concat("\n");
-	        }
-	        mensaje=mensaje.concat("\n Modelo galleta:\n" + tipo_galleta[0] + "\n");
+	    function galletaFunction(objeto, url){
+						    
+			if( tipo_galleta.length == 0){
+			    objeto.style.opacity=0.4;
+			    tipo_galleta.push(url);
+			}			
+			else { 
+			    objeto.style.opacity=1;
+			    tipo_galleta.splice(0,1);
+			}
+	    }
 	
-	        alert(mensaje);
-        }
+	    function mostrarPedido(){
+			var mensaje=' ';
+		
+			for (var i=0;i<elegidos.length; i++){
+			     mensaje = mensaje.concat("Galleta" + i + ":\n");
+			     mensaje = mensaje.concat(elegidos[i]);
+			     mensaje = mensaje.concat("\n");
+			}
+			mensaje=mensaje.concat("\n Modelo galleta:\n" + tipo_galleta[0] + "\n");
+		
+			alert(mensaje);
+	    }
+
+		function Github(nombre){
+			window.open("https://www.github.com/"+nombre.substring(0, nombre.length-4) );
+		}
 
     </script>
+
+
 
 
     <!-- Script to Activate the Carousel -->
@@ -85,7 +91,6 @@
     </script>
 
 </head>
-
 
 <body>
 
@@ -104,7 +109,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/socialcookies/instagram">Conecta con Instagram</a>
+                	<li><a href="/socialcookies/instagram">Conecta con Instagram</a>
                     </li>
                     <li><a href="/socialcookies/twitter">Conecta con Twitter</a>
                     </li>
@@ -121,16 +126,17 @@
     <div id="myCarousel" class="carousel slide">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-                % for p in range(len(fich)):
-                	% if p==0:
-                    		<li data-target="#myCarousel" data-slide-to="${p}" class="active"></li>
-                    % else:
-                    		<li data-target="#myCarousel" data-slide-to="${p}"></li>
-                    % endif
-                % endfor 
+		% for p in range(len(fich)):
+			% if p==0:
+	   		 	<li data-target="#myCarousel" data-slide-to="${p}" class="active"></li>
+	   		% else:
+	   		 	<li data-target="#myCarousel" data-slide-to="${p}"></li>
+	   		% endif
+		% endfor 
         </ol>
 
-         <div class="carousel-inner">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
 			% for f in fich:
 				% if f==fich[0]:
 				    <div class="item active">
@@ -139,7 +145,7 @@
 				% endif
 				        <div class="fill" style="background-image:url('${path}img-slider/${f}'); opacity:0.7;"></div>
 				        <div class="carousel-caption">
-				            	
+				            
 							<h1><cabecera-carousel> << Social Cookies >> </cabecera-carousel></h1>	
 					
 		               		<h3><p-carousel>
@@ -153,179 +159,238 @@
 			% endfor 
         </div>
 
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </div>
 
-    <div class="container">
-    </div>
-     
-     
-    % if seccion == "twitter":
-    	<div class="container">
-    
-        	<div class="row section">
-        
-	            <div class="col-lg-12">
-	            
-	                <h2><text-carousel> Twitter <text-carousel></h2>
-	                <br>
-	                <h3><font color="#606060">En construcción<font color="black"></h3>
-	                
-	            </div>
-            
-            </div>      
-             
-        <!--container-->
-
-
-    % elif seccion == "instagram":
-    	<div class="container">
-        
-            <div class="row section">
-            
-                <div class="col-lg-12">
-            	
-   					<h2><text-carousel> Instagram <text-carousel></h2>
-   					
-					<h3><font color="#606060">Seleccione sus fotos preferidas y nos encargaremos de hacer las galletas m&aacute;s originales y sabrosas que haya visto nunca.<font color="black"></h3><br>
-                                	    
-                    <%
-                    t=len(usuario)
-                    t_popu=len(popular)
-                    %>
-                    
-                    <h4>&iquest;Cu&aacute;l de sus fotos quiere comerse?</h4>
-                    
-                    <div class="row">
-
-	                    <div class="instagrams">
-	                            
-	                        <!-- Here is our Mustache template -->
-	                        % for i in range(t):
-	                            <%
-	                            foto        = usuario[i][0]
-	                            perfil      = usuario[i][1]
-	                            nombre      = usuario[i][2]
-	                            %>
-	                            <div class="instagram"  onClick="imgFunction(this, '${foto}')">
-	                                <div class="user">
-	                                    <img src="${perfil}" />
-	                                    <h1>${nombre}</h1>
-	                                </div>
-	                                <img src="${foto}"/>
-	                            </div>
-	                        % endfor
-	                            
-	                    </div>        
-                            
-                    </div>
-                                 
-                    <h4>&iquest;Cu&aacute;l de las fotos m&aacute;s populares y molonas de la red quiere comerse?</h4>
-                    
-                    <div class="row">
-                        
-                    	<div class="instagrams">
-                                            
-	                        <!-- Here is our Mustache template -->
-	                        % for i in range(t_popu):
-	                                <%
-	                                foto        = popular[i][0]
-	                                perfil		= popular[i][1]
-	                                nombre      = popular[i][2]
-	                                %>
-	                                <div class="instagram"  onClick="imgFunction(this, '${foto}')">
-	                                        <div class="user">
-	                                            <img src="${perfil}" />
-	                                            <h1>${nombre}</h1>
-	                                    </div>
-	                                    <img src="${foto}"/>
-	                                </div>
-	                        % endfor
-                                    
-                    	</div>        
-            
-                    </div>
-  
-                    <h4>&iquest;En qu&eacute; galleta las quieres?</h4>          <!-- Apuntar enlaces a imagenes directamente -->
-                    <p>S&oacute;lo se permite un modelo.</p>
-                         
-                    <div class="row" style="text-align:center; width:100%;">                                                                                               
-                        <img src="${path}img/Galletas/Galleta1.png" onClick='galletaFunction(this, this.src)' width='250' />
-                        <img src="${path}img/Galletas/Galleta2.png" onClick='galletaFunction(this, this.src)' width='250' />
-                        <img src="${path}img/Galletas/Galleta3.png" onClick='galletaFunction(this, this.src)' width='250' />
-                    </div>
-                    <div class="row" style="text-align:center; width:100%;">                 
-                        <img src="${path}img/Galletas/Galleta4.png" onClick='galletaFunction(this, this.src)' width='250' />
-                        <img src="${path}img/Galletas/Galleta5.png" onClick='galletaFunction(this, this.src)' width='250' />
-                        <img src="${path}img/Galletas/Galleta6.png" onClick='galletaFunction(this, this.src)' width='250' />                     
-                    <div>
-                    
-                    <div class="hero-unit">
-                    	<br><br>
-                    	<p><a class="btn btn-primary btn-large"  onClick='mostrarPedido()'>  Gestionar pedido   </a></p>
-                    </div>
-                </div>
-            	
-           	</div>
-    
-        <!--container-->
-    
-    
-    % elif seccion == "contacto":
         <div class="container">
+        </div>
         
-			<div class="row section">
-	        
-	            <div class="col-lg-12">
-	            
-	                <h2><text-carousel> Contacto </text-carousel></h2>
-	                
-	                <form action="contacto/" method="post">
-		                    ${formulario}
-		                    <input type="hidden" name="csrfmiddlewaretoken" value="${ csrftoken }" />
-		                    <br>
-		                    <input type="submit" value="Enviar"/>
-	                </form>
-				</div>
-            
-			</div>      
-             
-        <!--container-->
-
-
-    % elif seccion == "index":
-   
-   		<div class="container">
+        
+	% if seccion == "twitter":
+        <div class="container">
         
             <div class="row section">
             
                 <div class="col-lg-12">
                 
-                    <h2><text-carousel> Equipo </text-carousel></h2>
-                    	                
-	            </div>
-            
-            </div>      
-             
-        <!--container-->
+                    <h2><text-carousel> Twitter <text-carousel></h2>
+	                <br><br>
+	                
+	                <h3><font color="#606060">En construcci&oacute;n.<font color="black"></h3>
+	                
+                </div>
+                
+        	</div>      
+        	 
+	    <!--container-->
 
-   
+ 
+	% elif seccion == "instagram":
+		<div class="container">
+    	
+        	<div class="row section">
+        	
+            	<div class="col-lg-12">
+            	
+   					<h2><text-carousel> Instagram <text-carousel></h2>
+   					
+					<h3><font color="#606060">Seleccione sus fotos preferidas y nos encargaremos de hacer las galletas m&aacute;s originales y sabrosas que haya visto nunca.<font color="black"></h3>
+					<br><br>
+					
+					<%
+					t=len(usuario)
+					t_popu=len(popular)
+					%>
+					
+					<h4>&iquest;Cu&aacute;l de sus fotos quiere comerse?</h4>
+					
+					<div class="row">
+	
+						<div class="instagrams">
+							
+							<!-- Here is our Mustache template -->
+							% for i in range(t):
+								<%
+								foto 	= usuario[i][0]
+								perfil 	= usuario[i][1]
+								nombre 	= usuario[i][2]
+								%>
+								<div class="instagram"  onClick="imgFunction(this, '${foto}')">
+									<div class="user">
+								    	<img src="${perfil}" />
+								    	<h1>${nombre}</h1>
+								    </div>
+								    <img src="${foto}"/>
+								</div>
+							% endfor
+							
+						</div>	
+						
+					</div>
+					
+					<h4>&iquest;Cu&aacute;l de las fotos m&aacute;s populares y molonas de la red quiere comerse?</h4>
+					
+					<div class="row">
+					    
+						<div class="instagrams">
+								
+							<!-- Here is our Mustache template -->
+							% for i in range(t_popu):
+								<%
+								foto 	= popular[i][0]
+								perfil 	= popular[i][1]
+								nombre 	= popular[i][2]
+								%>
+								<div class="instagram"  onClick="imgFunction(this, '${foto}')">
+									<div class="user">
+								    	<img src="${perfil}" />
+								    	<h1>${nombre}</h1>
+								    </div>
+								    <img src="${foto}"/>
+								</div>
+							% endfor
+							
+						</div>	
+				
+					</div>
+	 
+					<h4>&iquest;En qu&eacute; galleta las quieres?</h4>          <!-- Apuntar enlaces a imagenes directamente -->
+				    <p>S&oacute;lo se permite un modelo.</p>
+			        
+			        <div class="row" style="text-align:center; width:100%;">				                                                   	    
+					    <img src="${path}img/Galletas/Galleta1.png" onClick='galletaFunction(this, this.src)' width='250' />
+					    <img src="${path}img/Galletas/Galleta2.png" onClick='galletaFunction(this, this.src)' width='250' />
+					    <img src="${path}img/Galletas/Galleta3.png" onClick='galletaFunction(this, this.src)' width='250' />
+					</div>
+			        <div class="row" style="text-align:center; width:100%;">		 
+					    <img src="${path}img/Galletas/Galleta4.png" onClick='galletaFunction(this, this.src)' width='250' />
+					    <img src="${path}img/Galletas/Galleta5.png" onClick='galletaFunction(this, this.src)' width='250' />
+					    <img src="${path}img/Galletas/Galleta6.png" onClick='galletaFunction(this, this.src)' width='250' />	             
+					<div>
+				
+				    <div class="hero-unit">
+			           <br><br>
+			           <p><a class="btn btn-primary btn-large"  onClick='mostrarPedido()'>  Gestionar pedido   </a></p>
+					</div>
+                </div>
+                
+            </div>
+	
+	    <!--container-->
+	
+	
+	% elif seccion == "contacto":
+    	<div class="container">
+    	
+            <div class="row section">
+            
+                <div class="col-lg-12">
+                
+                    <h2><text-carousel> Contacto </text-carousel></h2>
+                    <br><br>
+                    
+                    <form action="contacto/" method="post">
+		                ${formulario}
+		                <input type="hidden" name="csrfmiddlewaretoken" value="${ csrftoken }" />
+		                <br>
+		                <input type="submit" value="Enviar"/>
+                    </form>
+                </div>
+                
+        	</div>      
+        	 
+	    <!--container-->
+
+	% endif
+
+
+    % if seccion == "index":
+    
+        <div class="container">
+        
+            <div class="row section">
+            
+                <div class="col-lg-12">
+                    <h2><text-carousel> Equipo </text-carousel></h2>
+                    
+                    <h4><font color="#606060">
+                    Somos un grupo de alumnos de &uacute;ltimo curso del Grado en Ingenier&iacute;a Inform&aacute;tica que ha desarrollado un proyecto real presentado por una empresa asociada a Cocoroc&oacute;.
+				    <font color="black"></h4>
+					<br><br>
+					
+					<%
+					equipo = []
+					equipo.append("Ana Bel&eacute;n Rodr&iacute;guez Prados")
+					equipo.append("Francisco Manuel S&aacute;nchez Ramos")
+					equipo.append("Jos&eacute; Miguel L&oacute;pez P&eacute;rez")
+					equipo.append("Antonio Melero Bello")
+					equipo.append("&Oacute;scar Zafra")
+					equipo.append("Pedro")
+					equipo.append("Roge Gil Garc&iacute;a")
+					equipo.append("Jaime Torres Benavente")
+					%>
+			        
+			        <div class="grises">
+				        <div class="row">				                                                   	    
+						    <div class="text-center">
+						    	<% i = 0 %>
+								% for f in fotos:
+									%if i%4==0:
+											</div>
+										</div>
+										<div class="row">				                                                   	    
+						    				<div class="text-center">
+									%endif
+									<div class="col-xs-6 col-sm-3">
+										<a onclick="Github('${f}')" target='nueva'><img src="${path}img/authors/${f}" width='150' class="img-circle"></a>
+										<h5>${equipo[i]}</h5>
+									</div>
+									<% i+=1 %>
+									
+								% endfor
+							</div>
+						</div>
+						
+						<br><br><br><br>
+										    
+					    <div class="row">				                                                   	    
+						    <div class="text-center">
+								<div class="col-xs-6 col-sm-6">
+									<img src="${path}img/profesores/jj.jpg" alt="Foto equipo 1" width='150' class="img-circle">
+									<h5>JJ</h5>
+									
+								</div>
+								<div class="col-xs-6 col-sm-5">
+									<img src="${path}img/profesores/zerjio.jpg" alt="Foto equipo 1" width='150' class="img-circle">
+									<h5>Zerjillo</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+                </div>
+                
+        	</div>      
+        	 
+	    <!--container-->
+    	
+    	    
     % endif
-   
-       <hr>
-       <footer>
-           <div class="row">
-               <div class="col-lg-12">
-                   <p>Copyright &copy; Company 2013</p>
-               </div>
-           </div>
-       </footer>
+    	<br><br><br>
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Company 2013</p>
+                </div>
+            </div>
+        </footer>
         
     </div>
     <!-- /.container -->
