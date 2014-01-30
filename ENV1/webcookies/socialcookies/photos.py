@@ -5,12 +5,20 @@ from instagram import client, subscriptions
 from django.http import HttpResponse,  HttpResponseRedirect
 from djangomako.shortcuts import render_to_response, render_to_string
 
+import os
+ficheros = os.listdir('/Users/anabelen/Documents/GitHub/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
 
 CONFIG = {
-    'client_id': '28aecdf96ffd477297887aad3fcf624e',
-    'client_secret': '3b6ffb3a32674b63acb1c0dcbc0e1912',
-    'redirect_uri': 'http://localhost:8000/socialcookies/oauth_callback'
+	#'client_id': 		'acb74f518fad45e18df287b8da777717',
+    #'client_secret': 	'093fa01b5aa84d15b1eb58ac5a58b4f8',
+    #'redirect_uri': 	'http://127.0.0.1:8000/socialcookies/oauth_callback'
+    
+    'client_id': 		'28aecdf96ffd477297887aad3fcf624e',
+    'client_secret': 	'3b6ffb3a32674b63acb1c0dcbc0e1912',
+    'redirect_uri': 	'http://socialcookies.cloudapp.net/socialcookies/oauth_callback'
 }
+
+count = 24
 
 unauthenticated_api = client.InstagramAPI(**CONFIG)
 
@@ -51,40 +59,44 @@ def on_callback(request):
         api = client.InstagramAPI(access_token=access_token)
         
         #Descargamos las imagenes
-        recent_media, next = api.user_recent_media(6)
+        recent_media, next = api.user_recent_media(count)
         #Guardamos las imagenes
-        photos = []
+        usuario = []
+        	#photos
+        	#profile
+        	#name
 
         for media in recent_media:
-
-            
-            photos.append(media.images['thumbnail'].url)
-
-
-        #photos = ''.join(photos)
-
+     									 #'standard_resolution'
+		    usuario.append([ media.images['low_resolution'].url,
+						 	 media.user.profile_picture,
+		    			 	 media.user.full_name ])
+		   
+		    
+		
         #Descargamos las imagenes
-        popular_media = api.media_popular(6)
+        popular_media = api.media_popular(count)
+        print len(popular_media)
         #Guardamos las imagenes
         popular = []
+        	#photos
+        	#profile
+        	#name
+
         for media in popular_media:
+        								 #'standard_resolution'
+            popular.append([ media.images['low_resolution'].url,
+						 	 media.user.profile_picture,
+		    			 	 media.user.full_name ])
+            
 
-            popular.append(media.images['thumbnail'].url)
-
-        #popular = ''.join(popular)
-        
-       # return render.plantilla(Titulo='Desarrollo de Aplicaciones para Internet', Subtitulo='RSS, Google Chart, Maps y Twitter',login=login,cate=cat,cateA=web.websafe(i.categoria),
-       #         losPosts=losPosts, autor='Jose Miguel Lopez', reg=reg,log=log,user=user,error=False, vLink=vectorLink,vtS="",rss=rss)
-        
-        #return render.plantilla(photos=photos, popular=popular)
-
-
-
+		#Enviamos las imagenes al archivo html
         return render_to_response('index.html',
         {'path': '/static/socialcookies/bootstrap/',
         'seccion': 'instagram',
-        'photos': photos,
-        'popular': popular
+        'usuario': usuario,
+        'popular': popular,
+    	'fich':ficheros
         })
        
     except Exception, e:

@@ -38,9 +38,9 @@ template {
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -6324,6 +6324,15 @@ button.close {
   border-left-color: #ffffff;
   border-right-width: 0;
   content: " ";
+}
+
+text-carousel {
+  font-family: "Amatic SC";
+  font-size: 60px;
+}
+
+p-carousel {
+  font-family: "Amatic SC", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .carousel {

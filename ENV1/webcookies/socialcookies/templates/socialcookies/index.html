@@ -17,6 +17,10 @@
     
     <!-- Add form CSS here -->
     <link href="${path}css/estilo.css" rel="stylesheet" media="screen">
+            
+    <!-- Add instagram CSS here -->
+    <link href="${path}css/style.css" rel="stylesheet">
+    
 
     <script LANGUAGE="JavaScript" src="${path}js/jquery-1.10.2.js"></script>
     <script LANGUAGE="JavaScript" src="${path}js/bootstrap.min.js"></script>
@@ -174,57 +178,90 @@
 
         <div class="container">
         </div>
+        
+        
 	% elif seccion == "twitter":
         <div class="container">
+        
             <div class="row section">
+            
                 <div class="col-lg-12">
                     <h1>Twitter</h1>
                 </div>
-            </div>
-		</div>
+                
+        	</div>      
+        	 
+	    <!--container-->
 
  
 	% elif seccion == "instagram":
 		<div class="container">
-            <div class="row section">
-                <div class="col-lg-12">
-				    <h1>Instagram</h1>
-				    <h3>Seleccione sus fotos preferidas y nos encargaremos de hacer las galletas mas originales y sabrosas que nunca haya visto</h3>
-				    <%
-				    p=len(photos)
-				    p_popu=len(popular)
-				    %>
-				    
+    	
+        	<div class="row section">
+        	
+            	<div class="col-lg-12">
+            		<h1> Instagram </h1>
+					<h3><font color="#606060">Seleccione sus fotos preferidas y nos encargaremos de hacer las galletas m&aacute;s originales y sabrosas que haya visto nunca.<font color="black"></h3><br>
+					
+					<%
+					t=len(usuario)
+					t_popu=len(popular)
+					%>
+					
+					<h4>&iquest;Cu&aacute;l de sus fotos quiere comerse?</h4>
+					
 					<div class="row">
-						<div class="span4">   
-						    <h4>&iquest;Cu&aacute;l de sus fotos quiere comerse?</h4>
-						    % for i in range(p):
-						        <% foto= photos[i] %>
-						        <div class="col-xs-6 col-md-3">
-						            <a class="thumbnail">
-						                <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
-						            </a>
-						        </div>
-						    % endfor
-						</div>
+	
+						<div class="instagrams">
+							
+							<!-- Here is our Mustache template -->
+							% for i in range(t):
+								<%
+								foto 	= usuario[i][0]
+								perfil 	= usuario[i][1]
+								nombre 	= usuario[i][2]
+								%>
+								<div class="instagram"  onClick="imgFunction(this, '${foto}')">
+									<div class="user">
+								    	<img src="${perfil}" />
+								    	<h1>${nombre}</h1>
+								    </div>
+								    <img src="${foto}"/>
+								</div>
+							% endfor
+							
+						</div>	
+						
 					</div>
 					
-					<div class="row">
-						<div class="span4">
-						     <h4>&iquest;Cu&aacute;l de las fotos mas populares y molonas de la red quiere comerse?</h4>
-						    % for i in range(p_popu):
-						        <% foto= popular[i] %>
-						        <div class="col-xs-4 col-md-4">
-						            <a class="thumbnail">
-						                <img src='${foto}'  onClick='imgFunction(this, "${foto}")' />
-						            </a>
-						        </div>
-						    % endfor
-						</div>
-					</div>		 
+					<h4>&iquest;Cu&aacute;l de las fotos m&aacute;s populares y molonas de la red quiere comerse?</h4>
 					
+					<div class="row">
+					    
+						<div class="instagrams">
+								
+							<!-- Here is our Mustache template -->
+							% for i in range(t_popu):
+								<%
+								foto 	= popular[i][0]
+								perfil 	= popular[i][1]
+								nombre 	= popular[i][2]
+								%>
+								<div class="instagram"  onClick="imgFunction(this, '${foto}')">
+									<div class="user">
+								    	<img src="${perfil}" />
+								    	<h1>${nombre}</h1>
+								    </div>
+								    <img src="${foto}"/>
+								</div>
+							% endfor
+							
+						</div>	
+				
+					</div>
+	 
+					<h4>&iquest;En qu&eacute; tipo de galleta las quieres?</h4>          <!-- Apuntar enlaces a imagenes directamente -->
                     <div class="row" style="text-align:center; width:100%;">				                                                   
-				        <h4>&iquest;En qu&eacute; tipo de galleta las quieres?</h4>          <!-- Apuntar enlaces a imagenes directamente -->
 				        
 			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta1.png?raw=true'  onClick='galletaFunction(this, 1)' />
 			             <img src='https://github.com/IV-GII/SocialCookies/blob/master/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img/Galletas/Galleta2.png?raw=true'  onClick='galletaFunction(this, 2)' />
@@ -245,12 +282,17 @@
 				           <p><a class="btn btn-primary btn-large"  onClick='mostrarPedido()'>  Gestionar pedido   </a></p>
 					</div>
                 </div>
+                
             </div>
-		</div>
+	
+	    <!--container-->
+	
 	
 	% elif seccion == "contacto":
-            <div class="container">
+    	<div class="container">
+    	
             <div class="row section">
+            
                 <div class="col-lg-12">
                     <h1>Contacto</h1>
                     <form action="contacto/" method="post">
@@ -260,12 +302,16 @@
 		                <input type="submit" value="Enviar"/>
                     </form>
                 </div>
-            </div>
-        % endif
+                
+        	</div>      
+        	 
+	    <!--container-->
+
+	% endif
 
 
     % if seccion == "index":
-        <div class="row">
+        <!--<div class="row">
     		<div class="col-xs-6 col-md-3">
     			<a href="#" class="thumbnail">
     	  			<img src="${path}img/prueba.jpg" alt="imagen1">
@@ -286,10 +332,11 @@
     	  			<img src="${path}img/prueba.jpg" alt="imagen1">
     			</a>
       		</div>
-    	</div>
 
-        <br /><br />
+        <br /><br />-->
+        
     % endif
+    
         <hr>
         <footer>
             <div class="row">
@@ -298,6 +345,7 @@
                 </div>
             </div>
         </footer>
+        
     </div>
     <!-- /.container -->
 </body>

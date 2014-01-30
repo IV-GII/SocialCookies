@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = (
 #TEMPLATE_DIRS = ( '<ruta_proyecto>/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies' )
 #########
 TEMPLATE_DIRS = (
-    '/home/jaime/IV/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
+    '/Users/anabelen/Documents/GitHub/SocialCookies/ENV1/webcookies/socialcookies/templates/socialcookies'
 )
 
 ROOT_URLCONF = 'webcookies.urls'
