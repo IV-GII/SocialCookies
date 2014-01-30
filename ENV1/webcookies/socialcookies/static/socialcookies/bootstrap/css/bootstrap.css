@@ -6326,13 +6326,21 @@ button.close {
   content: " ";
 }
 
-text-carousel {
-  font-family: "Amatic SC";
-  font-size: 60px;
+cabecera-carousel {
+  font-family: "Amatic SC", Helvetica Neue, Helvetica, Arial, sans-serif;;
+  font-weight:900;
+  font-size: 90px;
 }
 
 p-carousel {
   font-family: "Amatic SC", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight:900;
+  font-size: 35px;
+}
+
+text-carousel {
+  font-family: "Amatic SC", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 50px;
 }
 
 .carousel {
