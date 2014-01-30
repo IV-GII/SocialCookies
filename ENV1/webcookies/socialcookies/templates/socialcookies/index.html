@@ -28,64 +28,47 @@
     <script type='text/javascript'>
         
         var elegidos = new Array();
-        var diseGalleta=0;
-        
-        function imgFunction(objeto, url){
-                        
-            if(objeto.style.opacity==1){
-                objeto.style.opacity=0.4;
-                elegidos.push(url);
-            }
-            else{
-                objeto.style.opacity=1;
-                indice = elegidos.indexOf(url);
-                if(indice!=-1)
-                    elegidos.splice(indice,1);
-            }
-        }
-
-            function galletaFunction(objeto, indi){
-            
-                if (diseGalleta==0) {     
-                if(objeto.style.opacity==1){
-                    objeto.style.opacity=0.4;
-                    diseGalleta=indi;
-                }
-            
-
-           
-                else{
-                    objeto.style.opacity=1;
-                    diseGalleta=0;
-                }
-
-            }
-
-            else { 
-                 if(objeto.style.opacity==0.4){
-                    objeto.style.opacity=1;
-                    diseGalleta=0;
-
-                 }
-
-            
-
-        }
-    }
-
-    function mostrarPedido(){
-        var mensaje=' ';
-
-        for (var i=0;i<elegidos.length; i++){
-             mensaje=mensaje.concat("Imagen galleta" + i + ":   \n");
-             mensaje = mensaje.concat(elegidos[i]);
-             
-        }
-
-        mensaje=mensaje.concat("\n Modelo galleta:   " +  diseGalleta );
-
-        alert(mensaje);
-    }
+	    var tipo_galleta =  new Array();
+	    
+	    function imgFunction(objeto, url){       	
+			indice = elegidos.indexOf(url);
+				    
+			if( indice == -1 ){
+				//objeto.style.border="4px solid #00bfa8";
+				objeto.style.opacity=0.4;
+			    elegidos.push(url);
+			} 
+			else{
+				//objeto.style.border="none";
+			    objeto.style.opacity=1;
+			    elegidos.splice(indice,1);
+			}
+	    }
+	
+	    function galletaFunction(objeto, url){
+						    
+			if( tipo_galleta.length == 0){
+			    objeto.style.opacity=0.4;
+			    tipo_galleta.push(url);
+			}			
+			else { 
+			    objeto.style.opacity=1;
+			    tipo_galleta.splice(0,1);
+			}
+	    }
+	
+	    function mostrarPedido(){
+			var mensaje=' ';
+		
+			for (var i=0;i<elegidos.length; i++){
+			     mensaje = mensaje.concat("Galleta" + i + ":\n");
+			     mensaje = mensaje.concat(elegidos[i]);
+			     mensaje = mensaje.concat("\n");
+			}
+			mensaje=mensaje.concat("\n Modelo galleta:\n" + tipo_galleta[0] + "\n");
+		
+			alert(mensaje);
+	    }
 
     </script>
 

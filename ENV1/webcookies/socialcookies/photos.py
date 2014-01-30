@@ -9,13 +9,13 @@ import os
 ficheros = os.listdir('/Users/anabelen/Documents/GitHub/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
 
 CONFIG = {
-	#'client_id': 		'acb74f518fad45e18df287b8da777717',
-    #'client_secret': 	'093fa01b5aa84d15b1eb58ac5a58b4f8',
-    #'redirect_uri': 	'http://127.0.0.1:8000/socialcookies/oauth_callback'
+	'client_id': 		'acb74f518fad45e18df287b8da777717',
+    'client_secret': 	'093fa01b5aa84d15b1eb58ac5a58b4f8',
+    'redirect_uri': 	'http://127.0.0.1:8000/socialcookies/oauth_callback'
     
-    'client_id': 		'28aecdf96ffd477297887aad3fcf624e',
-    'client_secret': 	'3b6ffb3a32674b63acb1c0dcbc0e1912',
-    'redirect_uri': 	'http://socialcookies.cloudapp.net/socialcookies/oauth_callback'
+    #'client_id': 		'28aecdf96ffd477297887aad3fcf624e',
+    #'client_secret': 	'3b6ffb3a32674b63acb1c0dcbc0e1912',
+    #'redirect_uri': 	'http://socialcookies.cloudapp.net/socialcookies/oauth_callback'
 }
 
 count = 24
