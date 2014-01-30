@@ -6,7 +6,9 @@ from django.http import HttpResponse,  HttpResponseRedirect
 from djangomako.shortcuts import render_to_response, render_to_string
 
 import os
-ficheros = os.listdir('/Users/anabelen/Documents/GitHub/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
+
+ficheros = os.listdir('./socialcookies/static/socialcookies/bootstrap/img-slider') 
+#ficheros = os.listdir('/Users/anabelen/Documents/GitHub/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
 
 CONFIG = {
 	'client_id': 		'acb74f518fad45e18df287b8da777717',
