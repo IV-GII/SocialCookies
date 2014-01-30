@@ -99,11 +99,11 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/socialcookies/twitter">Twitter</a>
+                    <li><a href="/socialcookies/twitter">Conecta con Twitter</a>
                     </li>
-                    <li><a href="/socialcookies/instagram">Instangram</a>
+                    <li><a href="/socialcookies/instagram">Conecta con Instagram</a>
                     </li>
                     <li><a href="/socialcookies/contacto">Contacto</a>
                     </li>
@@ -114,9 +114,7 @@
         <!-- /.container -->
     </nav>
 
-    
 
-    % if seccion == "index":
     <div id="myCarousel" class="carousel slide">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -163,7 +161,7 @@
         </div>
         
         
-	% elif seccion == "twitter":
+	% if seccion == "twitter":
         <div class="container">
         
             <div class="row section">
