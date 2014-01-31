@@ -52,12 +52,12 @@
 	    function galletaFunction(objeto, url){
 						    
 			if( tipo_galleta.length == 0){
-			    objeto.style.opacity=0.4;
-			    tipo_galleta.push(url);
+			    	objeto.style.opacity=0.4;
+			    	tipo_galleta.push(url);
 			}			
-			else { 
-			    objeto.style.opacity=1;
-			    tipo_galleta.splice(0,1);
+			else if (tipo_galleta[0]==url) { 
+			    	objeto.style.opacity=1;
+			    	tipo_galleta.splice(0,1);
 			}
 	    }
 	
@@ -326,14 +326,14 @@
 					
 					<%
 					equipo = []
-					equipo.append("Ana Bel&eacute;n Rodr&iacute;guez Prados")
-					equipo.append("Francisco Manuel S&aacute;nchez Ramos")
-					equipo.append("Jos&eacute; Miguel L&oacute;pez P&eacute;rez")
-					equipo.append("Antonio Melero Bello")
-					equipo.append("&Oacute;scar Zafra")
+					equipo.append("Ana Bel&eacute;n")
+					equipo.append("Francisco Manuel")
+					equipo.append("Jos&eacute;")
+					equipo.append("Antonio")
+					equipo.append("&Oacute;scar")
 					equipo.append("Pedro")
-					equipo.append("Roge Gil Garc&iacute;a")
-					equipo.append("Jaime Torres Benavente")
+					equipo.append("Roge")
+					equipo.append("Jaime")
 					%>
 			        
 			        <div class="grises">
@@ -362,12 +362,12 @@
 					    <div class="row">				                                                   	    
 						    <div class="text-center">
 								<div class="col-xs-6 col-sm-6">
-									<img src="${path}img/profesores/jj.jpg" alt="Foto equipo 1" width='150' class="img-circle">
+									<a href="http://geneura.ugr.es/~jmerelo/" target='nueva'><img src="${path}img/profesores/jj.jpg" alt="Foto equipo 1" width='150' class="img-circle"></a>
 									<h5>JJ</h5>
 									
 								</div>
 								<div class="col-xs-6 col-sm-5">
-									<img src="${path}img/profesores/zerjio.jpg" alt="Foto equipo 1" width='150' class="img-circle">
+									<a href="http://www.zerjio.com/" target='nueva'><img src="${path}img/profesores/zerjio.jpg" alt="Foto equipo 1" width='150' class="img-circle"></a>
 									<h5>Zerjillo</h5>
 								</div>
 							</div>
