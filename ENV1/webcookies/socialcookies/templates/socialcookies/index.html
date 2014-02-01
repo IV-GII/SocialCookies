@@ -65,16 +65,16 @@
 			var mensaje=' ';
 		
 			for (var i=0;i<elegidos.length; i++){
-			     mensaje = mensaje.concat("Galleta" + i + ":\n");
+			     
 			     mensaje = mensaje.concat(elegidos[i]);
-			     mensaje = mensaje.concat("\n");
+			     mensaje = mensaje.concat("|");
 
-			     document.getElementById("URL_"+ i).value = elegidos[i];    //No pueden ser mas de 10
-			//alert("URL_"+ i)
 			}
-			mensaje=mensaje.concat("\n Modelo galleta:\n" + tipo_galleta[0] + "\n");
+			mensaje=mensaje.concat(tipo_galleta[0]);
+
+			document.getElementById("galletas").value = mensaje;    //No pueden ser mas de 10
 			document.getElementById("formPed").submit();
-			//alert(mensaje);
+			alert(mensaje);
 	    }
 
 		function Github(nombre){

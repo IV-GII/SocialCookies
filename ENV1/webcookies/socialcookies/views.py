@@ -82,29 +82,10 @@ def contacto(request):
 				
 			if formulario.is_valid(): 
 
-				arrayFotos.append(request.POST['hidden_field0'])
-				arrayFotos.append(request.POST['hidden_field1'])
-				arrayFotos.append(request.POST['hidden_field2'])
-				arrayFotos.append(request.POST['hidden_field3'])
-				arrayFotos.append(request.POST['hidden_field4'])
-				arrayFotos.append(request.POST['hidden_field5'])
-				arrayFotos.append(request.POST['hidden_field6'])
-				arrayFotos.append(request.POST['hidden_field7'])
-				arrayFotos.append(request.POST['hidden_field8'])
-				arrayFotos.append(request.POST['hidden_field9'])
-				arrayFotos.append(request.POST['hidden_field10'])
-				arrayFotos.append(request.POST['hidden_field11'])
-				arrayFotos.append(request.POST['hidden_field12'])
-				arrayFotos.append(request.POST['hidden_field13'])
-				arrayFotos.append(request.POST['hidden_field14'])
-				arrayFotos.append(request.POST['hidden_field15'])
-				arrayFotos.append(request.POST['hidden_field16'])
-				arrayFotos.append(request.POST['hidden_field17'])
-				arrayFotos.append(request.POST['hidden_field18'])
-				arrayFotos.append(request.POST['hidden_field19'])
-
+				galletas=request.POST['hidden_field0']
+				galletas=galletas.split('|')
 				#Imprime url
-				print(arrayFotos)
+				print(galletas)
 
 		elif (get=="2"):
 
