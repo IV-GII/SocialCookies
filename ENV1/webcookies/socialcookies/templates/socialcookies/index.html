@@ -68,10 +68,13 @@
 			     mensaje = mensaje.concat("Galleta" + i + ":\n");
 			     mensaje = mensaje.concat(elegidos[i]);
 			     mensaje = mensaje.concat("\n");
+
+			     document.getElementById("URL_"+ i).value = elegidos[i];    //No pueden ser mas de 10
+			//alert("URL_"+ i)
 			}
 			mensaje=mensaje.concat("\n Modelo galleta:\n" + tipo_galleta[0] + "\n");
-		
-			alert(mensaje);
+			document.getElementById("formPed").submit();
+			//alert(mensaje);
 	    }
 
 		function Github(nombre){
@@ -276,8 +279,17 @@
 				
 				    <div class="hero-unit">
 			           <br><br>
-			           <p><a class="btn btn-primary btn-large"  onClick='mostrarPedido()'>  Gestionar pedido   </a></p>
+
+			          
 					</div>
+
+					<form id="formPed" action="contacto?q=1" method="post">
+		                ${formulario}
+		                <input type="hidden" name="csrfmiddlewaretoken" value="${ csrftoken }" />
+		                <br>
+		                <input class="btn btn-primary btn-large"   onClick='mostrarPedido()'   value="Enviar"/> 
+                    </form>
+
                 </div>
                 
             </div>
@@ -295,11 +307,16 @@
                     <h2><text-carousel> Contacto </text-carousel></h2>
                     <br><br>
                     
-                    <form action="contacto/" method="post">
-		                ${formulario}
+                    <form action="contacto?q=2" method="post">
+		                ${formulario2}
 		                <input type="hidden" name="csrfmiddlewaretoken" value="${ csrftoken }" />
 		                <br>
 		                <input type="submit" value="Enviar"/>
+                    </form>
+
+                    
+		                ${formulario}
+		              
                     </form>
                 </div>
                 

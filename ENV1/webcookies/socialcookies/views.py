@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from socialcookies.forms import ContactForm
+from socialcookies.forms import fotosPedido
 from djangomako.shortcuts import render_to_response, render_to_string
 from django.core.context_processors import csrf
 from django.template import RequestContext
@@ -16,21 +17,19 @@ import photos
 import os
 
 
-# Create your views here.
-
-#def hola(request):
-	#return HttpResponse("Hola")
 
 ficheros = os.listdir('./socialcookies/static/socialcookies/bootstrap/img-slider')	
 
-#ficheros = os.listdir('/Users/anabelen/Documents/GitHub/SocialCookies/ENV1/webcookies/socialcookies/static/socialcookies/bootstrap/img-slider') 
 
 def index(request):
-    return render_to_response('index.html',
+	fotosE=os.listdir('./socialcookies/static/socialcookies/bootstrap/img/authors')
+	fotosE.sort()
+
+	return render_to_response('index.html',
     	{'path':'/static/socialcookies/bootstrap/',
     	'seccion': 'index',
     	'fich':ficheros,
-    	'fotos':os.listdir('./socialcookies/static/socialcookies/bootstrap/img/authors')
+    	'fotos':fotosE
     	})
 
 def twitter(request):
@@ -66,21 +65,66 @@ def mandaCorreo(titulo, contenido):
 
 
 def contacto(request):
+	arrayFotos=[]
+
+	if 'q' in  request.GET and request.GET['q']:
+		get=request.GET['q']
+		print (get)
+
 	if request.method=='POST':
-		formulario = ContactForm(request.POST)
-		if formulario.is_valid():
+		
+		formulario= fotosPedido(request.POST)
+		formulario2=ContactForm(request.POST)
+
+
+		if (get=="1"):
+			
+				
+			if formulario.is_valid(): 
+
+				arrayFotos.append(request.POST['hidden_field0'])
+				arrayFotos.append(request.POST['hidden_field1'])
+				arrayFotos.append(request.POST['hidden_field2'])
+				arrayFotos.append(request.POST['hidden_field3'])
+				arrayFotos.append(request.POST['hidden_field4'])
+				arrayFotos.append(request.POST['hidden_field5'])
+				arrayFotos.append(request.POST['hidden_field6'])
+				arrayFotos.append(request.POST['hidden_field7'])
+				arrayFotos.append(request.POST['hidden_field8'])
+				arrayFotos.append(request.POST['hidden_field9'])
+				arrayFotos.append(request.POST['hidden_field10'])
+				arrayFotos.append(request.POST['hidden_field11'])
+				arrayFotos.append(request.POST['hidden_field12'])
+				arrayFotos.append(request.POST['hidden_field13'])
+				arrayFotos.append(request.POST['hidden_field14'])
+				arrayFotos.append(request.POST['hidden_field15'])
+				arrayFotos.append(request.POST['hidden_field16'])
+				arrayFotos.append(request.POST['hidden_field17'])
+				arrayFotos.append(request.POST['hidden_field18'])
+				arrayFotos.append(request.POST['hidden_field19'])
+
+				#Imprime url
+				print(arrayFotos)
+
+		elif (get=="2"):
+
+			print ("Enviar mensaje")
 			titulo = 'Mensaje de contacto desde \"Social Cookies\"'
-			contenido = formulario.cleaned_data['mensaje'] + "\n"
-			contenido += 'Comunicarse a : ' + formulario.cleaned_data['correo']
+			contenido = request.POST['mensaje'] + "\n"
+			contenido += 'Comunicarse a : ' + request.POST['correo']
 			mandaCorreo(titulo, contenido)
 			return HttpResponseRedirect('/socialcookies')
+		
+
 	else:
-		formulario = ContactForm()
+			formulario = ContactForm()
+
 
 	return render_to_response('index.html',
 		{'path':'/static/socialcookies/bootstrap/',
 		'seccion': 'contacto',
 		'formulario':formulario,
+		'formulario2': formulario2,
 		"csrftoken": csrf(request)["csrf_token"],
 		'fich':ficheros})
     	
