@@ -11,9 +11,9 @@ from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
+from collage import descargaAndPaste
 
 import photos
-
 import os
 
 
@@ -75,7 +75,7 @@ def contacto(request):
 		
 		formulario= fotosPedido(request.POST)
 		formulario2=ContactForm(request.POST)
-
+		galletas=""
 
 		if (get=="1"):
 			
@@ -84,17 +84,24 @@ def contacto(request):
 
 				galletas=request.POST['hidden_field0']
 				galletas=galletas.split('|')
+				
 				#Imprime url
-				print(galletas)
+				#print(galletas)
+				tipoGalleta=galletas.pop()
+				print (tipoGalleta)
+
+				descargaAndPaste(galletas, "archivoSal.jpg")
 
 		elif (get=="2"):
 
 			print ("Enviar mensaje")
-			titulo = 'Mensaje de contacto desde \"Social Cookies\"'
-			contenido = request.POST['mensaje'] + "\n"
-			contenido += 'Comunicarse a : ' + request.POST['correo']
-			mandaCorreo(titulo, contenido)
-			return HttpResponseRedirect('/socialcookies')
+
+			
+			# titulo = 'Mensaje de contacto desde \"Social Cookies\"'
+			# contenido = request.POST['mensaje'] + "\n"
+			# contenido += 'Comunicarse a : ' + request.POST['correo']
+			# mandaCorreo(titulo, contenido)
+			# return HttpResponseRedirect('/socialcookies')
 		
 
 	else:
