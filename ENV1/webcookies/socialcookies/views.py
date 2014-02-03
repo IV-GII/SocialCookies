@@ -60,12 +60,15 @@ def mandaCorreo(titulo, contenido):
 	#text = msg.as_string ()
 	#server.sendmail(fromaddr, toaddr, text)
 	
-	email = EmailMessage(titulo, contenido, to=['socialcookiesiv@gmail.com'])
+	email = EmailMessage(titulo, contenido, to=['socialcookiesiv@gmail.com']) 
+	email.attach_file('archivoSal.jpg')
 	email.send()
 
+tipoGalleta=0
 
 def contacto(request):
 	arrayFotos=[]
+	
 
 	if 'q' in  request.GET and request.GET['q']:
 		get=request.GET['q']
@@ -87,21 +90,25 @@ def contacto(request):
 				
 				#Imprime url
 				#print(galletas)
-				tipoGalleta=galletas.pop()
-				print (tipoGalleta)
+				global tipoGalleta
+				tipoGalleta=galletas[-1]
+				galletas.pop()
+
+				tipoGalleta=tipoGalleta[-5]
 
 				descargaAndPaste(galletas, "archivoSal.jpg")
 
 		elif (get=="2"):
 
 			print ("Enviar mensaje")
+			titulo = 'Mensaje de contacto desde \"Social Cookies\"'
+			contenido = request.POST['mensaje'] + "\n"
+			contenido += 'Comunicarse a : ' + request.POST['correo'] + "\n"
+			contenido += 'A escogido el tipo de galleta: ' "<" + str(tipoGalleta) + ">"
 
+			mandaCorreo(titulo, contenido)
 			
-			# titulo = 'Mensaje de contacto desde \"Social Cookies\"'
-			# contenido = request.POST['mensaje'] + "\n"
-			# contenido += 'Comunicarse a : ' + request.POST['correo']
-			# mandaCorreo(titulo, contenido)
-			# return HttpResponseRedirect('/socialcookies')
+			return HttpResponseRedirect('/socialcookies')
 		
 
 	else:
