@@ -1,0 +1,6 @@
+django
+django-mako
+tweepy
+pil
+python-instagram
+Image

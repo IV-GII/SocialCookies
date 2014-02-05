@@ -113,6 +113,7 @@ def contacto(request):
 
 	else:
 			formulario = ContactForm()
+			formulario2= fotosPedido()
 
 
 	return render_to_response('index.html',
