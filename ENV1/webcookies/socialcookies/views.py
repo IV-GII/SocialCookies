@@ -18,15 +18,15 @@ import os
 
 
 
-ficheros = os.listdir('./socialcookies/static/socialcookies/bootstrap/img-slider')	
+ficheros = os.listdir('./socialcookies/static/img-slider')	
 
 
 def index(request):
-	fotosE=os.listdir('./socialcookies/static/socialcookies/bootstrap/img/authors')
+	fotosE=os.listdir('./socialcookies/static/img/authors')
 	fotosE.sort()
 
 	return render_to_response('index.html',
-    	{'path':'/static/socialcookies/bootstrap/',
+    	{'path':'/static/',
     	'seccion': 'index',
     	'fich':ficheros,
     	'fotos':fotosE
@@ -34,7 +34,7 @@ def index(request):
 
 def twitter(request):
 	return render_to_response('index.html',
-		{'path':'/static/socialcookies/bootstrap/',
+		{'path':'/static/',
     	'seccion': 'twitter',
     	'fich':ficheros})
 
@@ -113,10 +113,11 @@ def contacto(request):
 
 	else:
 			formulario = ContactForm()
+			formulario2= fotosPedido()
 
 
 	return render_to_response('index.html',
-		{'path':'/static/socialcookies/bootstrap/',
+		{'path':'/static/',
 		'seccion': 'contacto',
 		'formulario':formulario,
 		'formulario2': formulario2,

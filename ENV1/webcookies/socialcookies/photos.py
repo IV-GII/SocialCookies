@@ -7,19 +7,9 @@ from django.http import HttpResponse,  HttpResponseRedirect
 from djangomako.shortcuts import render_to_response, render_to_string
 from socialcookies.forms import fotosPedido
 import os
+from conf import *   #conf.py es secreto
 
-ficheros = os.listdir('./socialcookies/static/socialcookies/bootstrap/img-slider') 
-
-
-CONFIG = {
-	'client_id': 		'acb74f518fad45e18df287b8da777717',
-    'client_secret': 	'093fa01b5aa84d15b1eb58ac5a58b4f8',
-    'redirect_uri': 	'http://127.0.0.1:8000/socialcookies/oauth_callback'
-    
-    #'client_id': 		'28aecdf96ffd477297887aad3fcf624e',
-    #'client_secret': 	'3b6ffb3a32674b63acb1c0dcbc0e1912',
-    #'redirect_uri': 	'http://socialcookies.cloudapp.net/socialcookies/oauth_callback'
-}
+ficheros = os.listdir('./socialcookies/static/img-slider') 
 
 count = 24
 
@@ -53,7 +43,7 @@ def on_callback(request):
         if formu.is_valid():
             print formulario2.cleaned_data['hidden_field0']
             return render_to_response('index.html',
-        {'path':'/static/socialcookies/bootstrap/',
+        {'path':'/static/',
         'seccion': 'contacto',
         'formulario':formu,
         "csrftoken": csrf(request)["csrf_token"],
@@ -105,7 +95,7 @@ def on_callback(request):
 
     		#Enviamos las imagenes al archivo html
             return render_to_response('index.html',
-            {'path': '/static/socialcookies/bootstrap/',
+            {'path': '/static/',
             'seccion': 'instagram',
             'formulario':formu,
             "csrftoken": csrf(request)["csrf_token"],
