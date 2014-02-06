@@ -3,3 +3,4 @@ django-mako
 tweepy
 python-instagram
 Image
+pil
