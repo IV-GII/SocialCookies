@@ -31,6 +31,7 @@ source bin/activate
 sudo pip install -r requirements.txt
 
 cd webcookies
+echo "El archivo conf.py esta encriptado, es necesario desencriptarlo de forma manual, usando << gpg conf.py >>"
 python manage.py runserver 0.0.0.0:8000 &
 
 
