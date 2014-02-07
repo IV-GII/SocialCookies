@@ -40,7 +40,7 @@ Nos creamos la cuenta de Twitter @socialcommits, esta cuenta de twitter la enlaz
 
 También nos creamos una cuenta de Instagram, para hacer las pruebas, el usuario es SocialCookies.
 
-Para trabajar usamos una metodología de trabajo colaborativa usando GIT y GitHub.
+Para trabajar usamos una metodología de trabajo colaborativa usando GIT y GitHub, e intentamos seguir también la metodología scrum, intentando siempre tener algo que funcionase.
 
 Esta metodología consiste en crear ``Milestones`` para cada sección del trabajo que estamos realizando, y para cada sección creamos ``Issues`` que se asignaban a los distintos componentes del grupo. 
 Cuando se concluía un trabajo se cerraba el Issue y se pasaba a completar otro Issue.
