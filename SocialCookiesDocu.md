@@ -40,7 +40,7 @@ Nos creamos la cuenta de Twitter @socialcommits, esta cuenta de twitter la enlaz
 
 También nos creamos una cuenta de Instagram, para hacer las pruebas, el usuario es SocialCookies.
 
-Para trabajar usamos una metodología de trabajo colaborativa usando GIT y GitHub.
+Para trabajar usamos una metodología de trabajo colaborativa usando GIT y GitHub, e intentamos seguir también la metodología scrum, intentando siempre tener algo que funcionase.
 
 Esta metodología consiste en crear ``Milestones`` para cada sección del trabajo que estamos realizando, y para cada sección creamos ``Issues`` que se asignaban a los distintos componentes del grupo. 
 Cuando se concluía un trabajo se cerraba el Issue y se pasaba a completar otro Issue.
@@ -57,6 +57,8 @@ La aplicación la hemos desarrollado haciendo uso del framework Django que respe
 Hemos subido nuestra aplicación a una máquina virtual de Azure la cual podemos ver [aquí](http://socialcookiesiv.cloudapp.net/socialcookies/)
 
 Para encriptar las claves de Instagram hemos usado la herramienta GPG que es libre.
+
+También hemos usado la tecnología SMTP para el énvio de mensajes desde la aplicación web al correo del cocinero.
 
 
 ##Aprovisionamiento.
@@ -80,6 +82,8 @@ La última pestaña "Contacto" contiene un formulario con el cual el cliente pue
 ##Conexión con redes sociales.
 
 ##Problemas planteados.
+
+Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desde nuestra aplicación. Al principio nos comentó Jose María que gmail daba muchos problemas y que nos resultaría casi imposible conseguir enviar un correo con gmail así que lo intentamos con hotmail. Intentamos configurarlo durante una hora pero no hubo forma, así que se nos ocurrió intentarlo con gmail y en 5 minutos ya estabamos enviando correos desde nuestra aplicación. Simplemente tuvimos que añadir unas líneas en el archivo "setting.py" indicando el servidor smtp, el nombre del correo donde se envía cada mensaje, la contraseña y el puerto.
 
 ##Posibles mejoras.
 

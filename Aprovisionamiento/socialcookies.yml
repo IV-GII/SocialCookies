@@ -1,0 +1,20 @@
+---
+- hosts: servidor
+  sudo: yes
+  tasks:
+    - name: Instalar Python python-pip y build-essential
+      apt: name=build-essential state=present
+    - name: Instalar python
+      apt: name=python state=present
+    - name: Instalar python-dev
+      apt: name=python-dev state=present
+    - name: Instalar python-pip
+      apt: name=python-dev state=present
+    - name: Instalar módulos de Python necesarios
+      command: pip install django django-mako tweepy python-instagram Image pil
+    - name: Instalar git
+      apt: name=git state=present
+    - name: Descargamos la aplicación de github
+      action: git repo=https://github.com/IV-GII/SocialCookies.git dest=./SocialCookies
+      tags: deploy
+
