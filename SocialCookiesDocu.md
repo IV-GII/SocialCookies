@@ -83,6 +83,8 @@ La última pestaña "Contacto" contiene un formulario con el cual el cliente pue
 
 ##Problemas planteados.
 
+Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desde nuestra aplicación. Al principio nos comentó Jose María que gmail daba muchos problemas y que nos resultaría casi imposible conseguir enviar un correo con gmail así que lo intentamos con hotmail. Intentamos configurarlo durante una hora pero no hubo forma, así que se nos ocurrió intentarlo con gmail y en 5 minutos ya estabamos enviando correos desde nuestra aplicación. Simplemente tuvimos que añadir unas líneas en el archivo "setting.py" indicando el servidor smtp, el nombre del correo donde se envía cada mensaje, la contraseña y el puerto.
+
 ##Posibles mejoras.
 
 ##Reflexiones y valoración del trabajo.
