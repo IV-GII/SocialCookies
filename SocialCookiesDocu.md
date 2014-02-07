@@ -58,6 +58,8 @@ Hemos subido nuestra aplicación a una máquina virtual de Azure la cual podemos
 
 Para encriptar las claves de Instagram hemos usado la herramienta GPG que es libre.
 
+También hemos usado la tecnología SMTP para el énvio de mensajes desde la aplicación web al correo del cocinero.
+
 
 ##Aprovisionamiento.
 
