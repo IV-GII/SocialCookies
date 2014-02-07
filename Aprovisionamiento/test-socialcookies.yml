@@ -4,8 +4,12 @@
   tasks:
     - name: Instalar Python python-pip y build-essential
       apt: name=build-essential state=present
+    - name: Instalar python
+      apt: name=python state=present
+    - name: Instalar python-dev
       apt: name=python-dev state=present
-      apt: name=python-pip state=present
+    - name: Instalar python-pip
+      apt: name=python-dev state=present
     - name: Instalar módulos de Python necesarios
       command: pip install django django-mako tweepy python-instagram Image pil
     - name: Instalar git
