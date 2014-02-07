@@ -78,7 +78,7 @@ Para poder acceder a traves de internet a nuestra aplicación, decidimos despleg
 dado que somos muchos, para funcionar mejor se decidió que solo un miembro del grupo se encargaría de hacer las pruebas en el 
 servidor, según fuera avanzando la aplicación. Por otro lado, nos apreció una buena idea separar, por un lado el despliegue y por otro lado los test. Es por ello que se han creado dos maquinas virtuales, una solo para los test y otro para el despliegue.
 
-[captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies.png)
+![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies.png)
 
 La configuración de ambas es identica, se crearon siguiendo las plantillas de azure con ubuntu server 13.10 y se le añadieron
 los extremos para http, ssh y sftp. Hay que destacar que el extremo http esta modificado para que rediriga las conexiones públicas 
@@ -213,7 +213,7 @@ Con esto ya podemos proceder a lanzar ansible indicandole que archivo de recetas
 	ansible-playbook socialcookies.yml
 
 
-[captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies2.png)
+![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies2.png)
 
 
 Ahora que ya tenemos la maquina con todos los paquetes necesarios, tenemos que conectarnos mediante ssh. Dentro podemos ver
@@ -222,11 +222,11 @@ ansible descargados antes, y el script "despliegue.sh". Después de ejecutarlo, 
 con las llaves de instagram, y poder así lanzar el servidor.
 
 
-[captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies3.png)
+![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies3.png)
 
-[captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies4.png)
+![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies4.png)
 
-[captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies5.png)
+![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies5.png)
 
 Podemos ver que la aplicación funciona perfectamente, aunque cerremos la terminal con la conexión ssh.
 
