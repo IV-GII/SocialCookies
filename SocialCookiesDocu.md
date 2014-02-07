@@ -76,7 +76,7 @@ También hemos usado la tecnología SMTP para el énvio de mensajes desde la apl
 
 Para poder acceder a traves de internet a nuestra aplicación, decidimos desplegarla en una maquina virtual creada en azure. Además,
 dado que somos muchos, para funcionar mejor se decidió que solo un miembro del grupo se encargaría de hacer las pruebas en el 
-servidor, según fuera avanzando la aplicación. Por otro lado, nos apreció una buena idea separar, por un lado el despliegue y por otro lado los test. Es por ello que se han creado dos maquinas virtuales, una solo para los test y otro para el despliegue.
+servidor, según fuera avanzando la aplicación. Por otro lado, nos pareció una buena idea separar, por un lado el despliegue y por otro lado los test. Es por ello que se han creado dos maquinas virtuales, una solo para los test y otro para el despliegue.
 
 ![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies.png)
 
