@@ -1,6 +1,13 @@
 #SocialCookies.
 _______________
 
+
+##Licencia
+
+Hemos usado una licencia [GPLV2](https://github.com/IV-GII/SocialCookies/blob/master/LICENSE). Esta licencia la he generado al crear el proyecto seleccionando como tipo de licencia "LICENCE GPLV2".
+
+_______________
+
 Tras nuestra acogida en  Cocorocó Coworking, se nos propusieron una serie de proyectos interesante tanto por su parte formativa, como por sus visión empresarial.
 
 Uno de ellos fue, SocialCookies, que como su nombre bien indica, tiene una gran relación con las Redes Sociales "social" y con las galletas "cookies", dos cosas que por lo general le gusta a la gente.
@@ -14,7 +21,6 @@ Poder aunar estos dos elementos, fue una de las cosas que más nos llamó la ate
 En Cocorocó conocimos a un cocinero, que se dedicaba a hacer galletas personalizadas y como pudimos comprobar tenia ya unas instalaciones para producir estas curiosas galletas.
 
 Nos comento su intentares en tener una plataforma web para su empresa y que permitiera a los clientes gestionar pedidos personalizados con fotos obtenidas de las redes sociales Instagram y Twitter.
-
 
 
 ###Requisitos.
