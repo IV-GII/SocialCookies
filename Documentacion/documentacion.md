@@ -16,12 +16,12 @@ La máquina se ha creado desde el panel web de Azure y se han establecido extrem
 
 ![Máquina virtual extremos](https://raw.github.com/IV-GII/SocialCookies/master/Documentacion/img/mv_extremos.png)
 
-Podemos ver el script de configuración [aquí](https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh).
 
 La creación de la máquina virtual por el web panel la podemos ver en la [práctica3](https://github.com/oskyar/Practica3-VirtualMachine/blob/master/documentacion/documentacion.md#1-empezaremos-creando-la-m%C3%A1quina-virtual-desde-la-p%C3%A1gina-de-azure-ya-que-es-m%C3%A1s-atractivo-e-intuitivo) de la asignatura. 
 
-Podemos ver como actualizamos la máquina virtual, la instalación de Python y los módulos que vamos a utilizar en el siguiente [script](https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh). 
+Podemos ver como configuramos la máquina virtual y la instalación de los módulos que vamos a utilizar en el siguiente [script](https://github.com/IV-GII/SocialCookies/blob/master/Aprovisionamiento/script.sh). 
 
+La máquina la aprovisionaremos serán git, python, django y los módulos que necesita para 
 
 ##Uso de la aplicación
 
