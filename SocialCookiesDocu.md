@@ -84,19 +84,45 @@ La última pestaña "Contacto" contiene un formulario con el cual el cliente pue
 
 Una de la pieza central de nuestra aplicación es hacer que se conecte con las redes sociales antes citadas ("gmail", "twitter", "instagram") y que sea tanto de obtener como enviar información.
 
+####Instagram
+
 - Para Instagram usamos una api espcifica  para python ``python-instagram``.
 
 A grandes rasgos la configuración que hemos realizado es la siguiente:
 
 1. Registrar cliente de Instagram.
 
-	//Poner captura.
+![](https://github.com/IV-GII/SocialCookies/blob/master/capturas/Instagram_cliente.png?raw=true)
+
 2. Incorporar ``CLIENT_ID`` y ``CLIENT SECRET`` a nuestro script python, (debemos tener en cuenta que esto es secreto y no podemos incorporarlo en texto claro a github, por ello lo ciframos usando la herramienta gpg).
 
 3. Lo primero que debemos hacer al intentar conectar con instagram, es redireccionar a una url que se genera automáticamente y que nos lleva a una pantalla de logueo.
 
 		url=unauthenticated_api.get_authorize_url(scope=["likes","comments"]) 
 	
+Una vez se realice el logueo, optenemos el ``access_token`` que nos permite crear una instancia de la conexión.
+
+	api = client.InstagramAPI(access_token=access_token)
+
+
+Ya podemos obtener las fotos recientes del usuario logueado usando:
+
+	api.user_recent_media(count)
+
+o las fotos populares:
+
+	api.media_popular(count)
+
+
+**Siendo (count) el numero de fotos que queremos obtener**
+
+Ya podemos almacenar las url de las imágenes en arrays para poder manejaras posteriormente. 
+
+####Twitter
+
+La parte de twitter tuvimos problemas con la autentifican, y no pudimos dedicarle más tiempo, así que nos pareció mas interesante trabajar con Instagram ya que es una cosa más novedosa.
+
+Sí que hicimos un progresos en twitter utilizando el micro framework web.py pero al importar los cambios a Django, no conseguimos hacerlo funcionar.
 
 
 
