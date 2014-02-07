@@ -1,3 +1,4 @@
+
 #SocialCookies.
 _______________
 
@@ -55,3 +56,61 @@ La última pestaña "Contacto" contiene un formulario con el cual el cliente pue
 
 
 
+=======
+#SocialCookies.
+_______________
+
+Tras nuestra acogida en  Cocorocó Coworking, se nos propusieron una serie de proyectos interesante tanto por su parte formativa, como por sus visión empresarial.
+
+Uno de ellos fue, SocialCookies, que como su nombre bien indica, tiene una gran relación con las Redes Sociales "social" y con las galletas "cookies", dos cosas que por lo general le gusta a la gente.
+
+Poder aunar estos dos elementos, fue una de las cosas que más nos llamó la atención en un primer momento, además pensando que si conseguimos hacemos de una forma divertida y agradable para el público, se puede hacer negocio con ello.
+
+
+##Descripción.
+
+
+###Requisitos.
+
+###Organización del trabajo.
+
+
+##Tecnología utilizada.
+
+##Aprovisionamiento.
+
+
+
+##Diseño web.
+
+
+##Conexión con redes sociales.
+
+##Problemas planteados.
+
+Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desde nuestra aplicación. Al principio nos comentó Jose María que gmail daba muchos problemas y que nos resultaría casi imposible conseguir enviar un correo con gmail así que lo intentamos con hotmail. Intentamos configurarlo durante una hora pero no hubo forma, así que se nos ocurrió intentarlo con gmail y en 5 minutos ya estabamos enviando correos desde nuestra aplicación. Simplemente tuvimos que añadir unas líneas en el archivo "setting.py" indicando el servidor smtp, el nombre del correo donde se envía cada mensaje, la contraseña y el puerto.
+
+##Posibles mejoras.
+
+##Reflexiones y valoración del trabajo.
+
+##Fuentes.
+
+######_Imágenes del carrusel:_
+- [http://www.eladerezo.com/wp-content/uploads/2006/10/Galletas-de-Chocolate-520x347.jpg](http://www.eladerezo.com/wp-content/uploads/2006/10/Galletas-de-Chocolate-520x347.jpg)
+
+- [http://recetasdecocinablog.com/wp-content/uploads/2013/03/galletas-de-jengibre.jpg](http://recetasdecocinablog.com/wp-content/uploads/2013/03/galletas-de-jengibre.jpg)
+
+- [http://runrun.es/wp-content/uploads/2012/06/galletas-de-jengibre-647x442.jpg](http://runrun.es/wp-content/uploads/2012/06/galletas-de-jengibre-647x442.jpg)
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 71b8312867b2269601daa9cbdf4646f3856afc62
