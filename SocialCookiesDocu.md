@@ -7,12 +7,15 @@ Uno de ellos fue, SocialCookies, que como su nombre bien indica, tiene una gran 
 
 Poder aunar estos dos elementos, fue una de las cosas que más nos llamó la atención en un primer momento, además pensando que si conseguimos hacemos de una forma divertida y agradable para el público, se puede hacer negocio con ello.
 
+![](http://granadadigital.es/wp-content/uploads/2014/01/12152536425_05fe6b44a4_k-500x300.jpg)
 
 ##Descripción.
 
 En Cocorocó conocimos a un cocinero, que se dedicaba a hacer galletas personalizadas y como pudimos comprobar tenia ya unas instalaciones para producir estas curiosas galletas.
 
 Nos comento su intentares en tener una plataforma web para su empresa y que permitiera a los clientes gestionar pedidos personalizados con fotos obtenidas de las redes sociales Instagram y Twitter.
+
+
 
 ###Requisitos.
 
@@ -124,6 +127,30 @@ La parte de twitter tuvimos problemas con la autentifican, y no pudimos dedicarl
 
 Sí que hicimos un progresos en twitter utilizando el micro framework web.py pero al importar los cambios a Django, no conseguimos hacerlo funcionar.
 
+####Gmail
+
+ Tuvimos que añadir unas líneas en el archivo "setting.py" indicando el servidor smtp, el nombre del correo donde se envía cada mensaje, la contraseña y el puerto.
+
+~~~
+
+	EMAIL_HOST = 'smtp.gmail.com'
+	EMAIL_HOST_USER = 'socialcookiesiv@gmail.com'
+	EMAIL_HOST_PASSWORD = 'IVsocialcookies'
+	EMAIL_PORT = 587
+	EMAIL_USE_TLS = True
+
+~~~
+
+y mandar correos con archivos adjuntos.
+
+
+~~~
+
+	email = EmailMessage(titulo, contenido, to=['socialcookiesiv@gmail.com']) 
+	email.attach_file('archivoSal.jpg')
+	email.send()
+
+~~~~
 
 
 ##Problemas planteados.
@@ -139,6 +166,9 @@ Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desd
 
 
 ##Reflexiones y valoración del trabajo.
+
+Jaime todo tuyo :)
+
 
 ##Fuentes.
 
@@ -160,7 +190,3 @@ Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desd
 
 
 
-
-
-
->>>>>>> 71b8312867b2269601daa9cbdf4646f3856afc62
