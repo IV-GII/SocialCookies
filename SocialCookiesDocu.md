@@ -332,8 +332,32 @@ Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desd
 
 ##Reflexiones y valoración del trabajo.
 
-Jaime todo tuyo :)
+Esta práctica a sido muy diferente a las demás realizadas este curso. Podemos enfocar el aprendizaje desde el punto de vista
+de las materias de las asignaturas aplicadas al desarrollo de una aplicación, pero la realidad es que la situación nos ha obligado
+a ir mas allá de lo aprendido en las aulas. El hecho de tener que desarrollar una página web sobre un tema ofertado ha hecho que 
+tengamos una idea mas cercana de lo que supone una relación entre un cliente y un conjunto de desarrolladores. Y además, precisamente
+por tener que satisfacer las demandas del cliente, ha conllevado que tengamos que investigar e incorporar cosas que no habiamos
+visto antes o en las que no nos sentíamos tan comodos. Ser capaces de llevarlo a cabo es, además de una satisfacción personal, 
+un ejemplo de que somos capaces de poner en práctica lo aprendido y adaptarnos según la situación lo requiera.
 
+Tambíen podemos enfocar la practica desde el punto de vista del trabajo en grupo. Nosotros somos 8 y aunque parezca que una ventaja, 
+la realidad es que puede ser un arma de doble filo. Desde el primer momento supimos que la clave para realizar con exito la 
+aplicación, y tener algo funcional para la exposición, era la organización. Perder una hora el primer día en organizarnos, supuso
+un avance grandísimo en el trascurso del finde semana. Además pudimos sacar aun mas partido a github, y comprobamos la potencia
+que tiene para ayudarnos a coordinar y supervisar el avance del software en desarrollo. El sistema de trabajo hizo que aunque 
+delimitaramos las tareas, la filosofía coworking era evidente ya que nos fuimos ayudando y solventando dudas unos a otros mejorando
+la experiencia del trabajo en equipo. En este sentido estamos muy satisfechos con nuestro trabajo, al margen del resultado.
+
+También hay que destacar la experiencia en cocoroco, donde no hay barreras arquitectónicas y donde pudimos constatar de primera
+mano poder estar rodeado de gente, que pese a no estar haciendo nada que tenga que ver con lo tuyo, te permitía acercarte y preguntar
+o intentar ayudar a cuaquiera.
+
+En definitiva, creemos que ha sido una experiencia muy positiva que nos ha permitido tener un primer contacto con la realidad que
+nos vamos a encontrar fuera de la seguridad que te ofrece un aula y dónde la diferencia entre hacer bien o mal algo solo repercute en
+una peor nota mientras que fuera te juegas tu prestigio o tu sueldo.
+
+Todos estamos de acuerdo en que hemos aprendido mas allá de las materias de las asignaturas y que está experiencia nos hace
+estar mejor preparados.
 
 ##Fuentes.
 
