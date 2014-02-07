@@ -83,6 +83,12 @@ La última pestaña "Contacto" contiene un formulario con el cual el cliente pue
 
 ##Posibles mejoras.
 
+- Finalizar la sección de Twitter.
+- Superponer molde e imagen seleccionada para ver el aspecto final de la galleta personalizada.
+- Poder realizar un pedido con varios modelos de galletas.
+- Poder realizar un pedido con varias unidades de una galleta con un molde e imagen.
+
+
 ##Reflexiones y valoración del trabajo.
 
 ##Fuentes.
@@ -95,9 +101,13 @@ La última pestaña "Contacto" contiene un formulario con el cual el cliente pue
 - [http://runrun.es/wp-content/uploads/2012/06/galletas-de-jengibre-647x442.jpg](http://runrun.es/wp-content/uploads/2012/06/galletas-de-jengibre-647x442.jpg)
 
 
+######_Framework css:_
 
+- [http://getbootstrap.com/](http://getbootstrap.com/)
 
+######_API's:_
 
+- [http://instagram.com/developer/#](http://instagram.com/developer/#)
 
 
 
