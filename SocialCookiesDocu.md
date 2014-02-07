@@ -199,7 +199,7 @@ remota. Solo necesitamos los archivos de ansible indicados anteriormente (ansibl
 en el [proyecto](https://github.com/IV-GII/SocialCookies/tree/master/Aprovisionamiento).
 
 Primero aprovisionamos con ansible. Hay que entender el concepto que subyace cuando usamos este sistema. Realmente lo único que ocurre
-es que se habre una conexión ssh con el host (o los hosts) y se ejecutan los comandos, pero ansible debe estar instalado en la
+es que se abre una conexión ssh con el host (o los hosts) y se ejecutan los comandos, pero ansible debe estar instalado en la
 maquina de la persona que quiere provisionar, no en el servidor.Por ello, lo primero y mas evidente es tener acceso mediante ssh.
 Como en el desarrollo de nuestra aplicación solo una persona se encargaba de hacer los test y de subirla a la maquina de despliegue,
 se configuró la autentificación mediante llave publica/privada RSA para que solo esa persona accediera. El siguiente paso es indicar 
