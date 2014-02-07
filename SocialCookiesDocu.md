@@ -81,6 +81,25 @@ La última pestaña "Contacto" contiene un formulario con el cual el cliente pue
 
 ##Conexión con redes sociales.
 
+
+Una de la pieza central de nuestra aplicación es hacer que se conecte con las redes sociales antes citadas ("gmail", "twitter", "instagram") y que sea tanto de obtener como enviar información.
+
+- Para Instagram usamos una api espcifica  para python ``python-instagram``.
+
+A grandes rasgos la configuración que hemos realizado es la siguiente:
+
+1. Registrar cliente de Instagram.
+
+	//Poner captura.
+2. Incorporar ``CLIENT_ID`` y ``CLIENT SECRET`` a nuestro script python, (debemos tener en cuenta que esto es secreto y no podemos incorporarlo en texto claro a github, por ello lo ciframos usando la herramienta gpg).
+
+3. Lo primero que debemos hacer al intentar conectar con instagram, es redireccionar a una url que se genera automáticamente y que nos lleva a una pantalla de logueo.
+
+		url=unauthenticated_api.get_authorize_url(scope=["likes","comments"]) 
+	
+
+
+
 ##Problemas planteados.
 
 Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desde nuestra aplicación. Al principio nos comentó Jose María que gmail daba muchos problemas y que nos resultaría casi imposible conseguir enviar un correo con gmail así que lo intentamos con hotmail. Intentamos configurarlo durante una hora pero no hubo forma, así que se nos ocurrió intentarlo con gmail y en 5 minutos ya estabamos enviando correos desde nuestra aplicación. Simplemente tuvimos que añadir unas líneas en el archivo "setting.py" indicando el servidor smtp, el nombre del correo donde se envía cada mensaje, la contraseña y el puerto.
