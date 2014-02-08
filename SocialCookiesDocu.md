@@ -42,9 +42,9 @@ Tras hacer el grupo, en la hora de clase de la asignatura de IV del primer Viern
 
 También creamos un grupo de ``Whatsapp`` para comunicarnos de forma informal.
 
-Ademas creamos una cuenta de gmail socialcookiesiv@gmail.es, para que puedan contactar los interesados en nuestra aplicación, y ademas a esta cuenta es la que va ha recibir los pedidos de los clientes.
+Ademas creamos una cuenta de gmail [socialcookiesiv@gmail.es](socialcookiesiv@gmail.es), para que puedan contactar los interesados en nuestra aplicación, y ademas a esta cuenta es la que va ha recibir los pedidos de los clientes.
 
-Nos creamos la cuenta de Twitter @socialcommits, esta cuenta de twitter la enlazamos con GitHub usando el Hook propio, de forma que lleguen los commits con el progreso del trabajo.
+Nos creamos la cuenta de Twitter [@socialcommits](https://twitter.com/CookiesCommits), esta cuenta de twitter la enlazamos con GitHub usando el Hook propio, de forma que lleguen los commits con el progreso del trabajo.
 
 
 También nos creamos una cuenta de Instagram, para hacer las pruebas, el usuario es SocialCookies.
@@ -238,7 +238,7 @@ Podemos acceder a la aplicación web desde este enlace [socialcookies](http://so
 
 En el index hemos puesto un slider que contendrá diferentes fotos de galletas. Ha sido creado de forma dinámica en el "index.html", de forma que cuando se introduzcan nuevas fotos o se eliminen en el slider aparezcan correctamente sin tener que modificar el codigo.
 
-Justo debajo hemos puesto una foto con los integrantes del equipo y cada foto contiene enlaces a sus perfiles de gitup. Además justo debajo de los integrantes hemos puesto a los profesores que han organizado este evento (JJ, Sergio, Jose María).
+Justo debajo hemos puesto una foto con los integrantes del equipo y cada foto contiene enlaces a sus perfiles de githup. Además justo debajo de los integrantes hemos puesto a los profesores que han organizado este evento (JJ, Sergio, Jose María).
 
 La pestaña "Conectar de Instagram" permite al cliente acceder a sus fotos de Instagran mediante su nombre de usuario y contraseña. Una vez que haya iniciado sesión le aparecerán sus fotos personales y las fotos más populares de la red. Justo debajo aparecen los diferentes modelos de galletas de forma que el cliente lo que haría seria seleccionar las fotos que deseea y un solo modelo de galleta (si quiere escoger varios modelos de galleta tendrá que realizar tantos pedidos como modelos desee) y seleccionaría sobre el boton de énviar produciendose el procesamiento de las imagenes. Además aparecerá un formulario para que el cliente rellene con sus datos personales. Al concluir esta operación se enviará un correo al cocinero con las imagenes y los datos personales del cliente.
 
