@@ -369,8 +369,8 @@ por tener que satisfacer las demandas del cliente, ha conllevado que tengamos qu
 visto antes o en las que no nos sentíamos tan comodos. Ser capaces de llevarlo a cabo es, además de una satisfacción personal, 
 un ejemplo de que somos capaces de poner en práctica lo aprendido y adaptarnos según la situación lo requiera.
 
-Tambíen podemos enfocar la practica desde el punto de vista del trabajo en grupo. Nosotros somos 8 y aunque parezca que una ventaja, 
-la realidad es que puede ser un arma de doble filo. Desde el primer momento supimos que la clave para realizar con exito la 
+Tambíen podemos enfocar la practica desde el punto de vista del trabajo en grupo. Nosotros somos 8 y aunque parezca una ventaja, 
+la realidad es que puede ser un arma de doble filo. Desde el primer momento supimos que la clave para realizar con éxito la 
 aplicación, y tener algo funcional para la exposición, era la organización. Perder una hora el primer día en organizarnos, supuso
 un avance grandísimo en el trascurso del finde semana. Además pudimos sacar aun mas partido a github, y comprobamos la potencia
 que tiene para ayudarnos a coordinar y supervisar el avance del software en desarrollo. El sistema de trabajo hizo que aunque 
