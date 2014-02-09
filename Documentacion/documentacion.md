@@ -125,7 +125,7 @@ test-socialcookies.yml:
 	- hosts: test
 	  sudo: yes
 	  tasks:
-	    - name: build-essential
+	    - name: Instalar build-essential
 	      apt: name=build-essential state=present
 	    - name: Instalar python
 	      apt: name=python state=present
@@ -133,8 +133,19 @@ test-socialcookies.yml:
 	      apt: name=python-dev state=present
 	    - name: Instalar python-pip
 	      apt: name=python-dev state=present
+	    - name: Instalar python-imaging
+	      apt: name=python-imaging state=present
+	    - name: Crear enlace libfreetype.so
+	      command: ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
+	      ignore_errors: True
+	    - name: Crear enlace libjpeg.so
+	      command: ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
+	      ignore_errors: True
+	    - name: Crear enlace libz.so
+	      command: ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
+	      ignore_errors: True
 	    - name: Instalar módulos de Python necesarios
-	      command: pip install django django-mako tweepy python-instagram Image pil
+	      command: pip install django django-mako tweepy python-instagram Image PIL
 	    - name: Instalar git
 	      apt: name=git state=present
 	    - name: Descargamos la aplicación de github
@@ -148,7 +159,7 @@ socialcookies.yml:
 	- hosts: servidor
 	  sudo: yes
 	  tasks:
-	    - name: Instalar Python python-pip y build-essential
+	    - name: Instalar build-essential
 	      apt: name=build-essential state=present
 	    - name: Instalar python
 	      apt: name=python state=present
@@ -156,8 +167,19 @@ socialcookies.yml:
 	      apt: name=python-dev state=present
 	    - name: Instalar python-pip
 	      apt: name=python-dev state=present
+	    - name: Instalar python-imaging
+	      apt: name=python-imaging state=present
+	    - name: Crear enlace libfreetype.so
+	      command: ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib/
+	      ignore_errors: True
+	    - name: Crear enlace libjpeg.so
+	      command: ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
+	      ignore_errors: True
+	    - name: Crear enlace libz.so
+	      command: ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib/
+	      ignore_errors: True
 	    - name: Instalar módulos de Python necesarios
-	      command: pip install django django-mako tweepy python-instagram Image pil
+	      command: pip install django django-mako tweepy python-instagram Image PIL
 	    - name: Instalar git
 	      apt: name=git state=present
 	    - name: Descargamos la aplicación de github
@@ -166,7 +188,11 @@ socialcookies.yml:
 
 
 En ambos puede verse que se instalan los mismos paquetes y que por ultimo se clona el repositorio del proyecto. La unica diferencia
-esta en la segunda línea, en la que indicamos los hosts.
+esta en la segunda línea, en la que indicamos los hosts. También hay que comentar que para que el módulo de pithon "PIL" funcione
+correctamente con la generación de imagenes, previamente a su isntalación, debemos crear tres enlaces. Si esto no se hace bien,
+cuando intentamos procesar el pedido la página dará un error al crear la imagen que se enviará al repostero. También podemos observar
+que hemos usado la directiva "ignore_errors" para que si los enlaces ya existierna, no se pare ansible y siga con el resto del 
+playbook.
 
 
 ### Script de despliegue
@@ -245,6 +271,9 @@ La pestaña "Conectar de Instagram" permite al cliente acceder a sus fotos de In
 La pestaña "Conecta con twitter" esta en reformas.
 
 La última pestaña "Contacto" contiene un formulario con el cual el cliente puede contactar con el cocinero para cualquier duda de cualquier tipo.
+
+Todas las imagenes usadas en la aplicación web, y que no son nuestras, tienen indicada la dirección de la que se ha descargado, 
+para no violar derechos de propiedad de las mismas.
 
 
 ##Conexión con redes sociales.

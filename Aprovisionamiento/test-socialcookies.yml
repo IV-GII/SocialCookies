@@ -10,14 +10,13 @@
       apt: name=python-dev state=present
     - name: Instalar python-pip
       apt: name=python-dev state=present
-    - name: Instalar build-dep
-      apt: name=build-dep state=present
     - name: Instalar python-imaging
-    - apt: name=python-imaging
+      apt: name=python-imaging state=present
     - name: Crear los enlaces simbolicos
       command: ln -s /usr/lib/`uname -i`-linux-gnu/libfreetype.so /usr/lib/
       command: ln -s /usr/lib/`uname -i`-linux-gnu/libjpeg.so /usr/lib/
       command: ln -s /usr/lib/`uname -i`-linux-gnu/libz.so /usr/lib/
+      ignore_errors: True
     - name: Instalar módulos de Python necesarios
       command: pip install django django-mako tweepy python-instagram Image PIL
     - name: Instalar git
