@@ -332,7 +332,7 @@ Uno de los problemas que más nos entretuvo fué conseguir enviar un correo desd
 
 ##Reflexiones y valoración del trabajo.
 
-Esta práctica a sido muy diferente a las demás realizadas este curso. Podemos enfocar el aprendizaje desde el punto de vista
+Esta práctica ha sido muy diferente a las demás realizadas este curso. Podemos enfocar el aprendizaje desde el punto de vista
 de las materias de las asignaturas aplicadas al desarrollo de una aplicación, pero la realidad es que la situación nos ha obligado
 a ir mas allá de lo aprendido en las aulas. El hecho de tener que desarrollar una página web sobre un tema ofertado ha hecho que 
 tengamos una idea mas cercana de lo que supone una relación entre un cliente y un conjunto de desarrolladores. Y además, precisamente
