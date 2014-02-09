@@ -63,7 +63,7 @@ También aprovechamos la facilidad que nos da Git para integrar y combinar los c
 
 La aplicación la hemos desarrollado haciendo uso del framework Django que respeta la filosofia  "Model-Template-View". Además hemos usado como plantilla un "Bootstrap" que nos hemos descargado de [aquí](http://getbootstrap.com/).
 
-Hemos subido nuestra aplicación a una máquina virtual de Azure la cual podemos ver [aquí](http://socialcookiesiv.cloudapp.net/socialcookies/)
+Hemos subido nuestra aplicación a una máquina virtual de Azure la cual podemos ver [aquí](http://socialcookies.cloudapp.net/socialcookies/)
 
 Para encriptar las claves de Instagram hemos usado la herramienta GPG que es libre.
 
@@ -254,7 +254,7 @@ con las llaves de instagram, y poder así lanzar el servidor.
 
 ![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies5.png)
 
-Podemos ver que la aplicación funciona perfectamente, aunque cerremos la terminal con la conexión ssh.
+Podemos ver que la [aplicación](http://socialcookiesiv.cloudapp.net/socialcookies/) funciona perfectamente, aunque cerremos la terminal con la conexión ssh.
 
 
 
