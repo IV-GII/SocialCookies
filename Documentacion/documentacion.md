@@ -188,10 +188,10 @@ socialcookies.yml:
 
 
 En ambos puede verse que se instalan los mismos paquetes y que por ultimo se clona el repositorio del proyecto. La unica diferencia
-esta en la segunda línea, en la que indicamos los hosts. También hay que comentar que para que el módulo de pithon "PIL" funcione
-correctamente con la generación de imagenes, previamente a su isntalación, debemos crear tres enlaces. Si esto no se hace bien,
-cuando intentamos procesar el pedido la página dará un error al crear la imagen que se enviará al repostero. También podemos observar
-que hemos usado la directiva "ignore_errors" para que si los enlaces ya existierna, no se pare ansible y siga con el resto del 
+esta en la segunda línea, en la que indicamos los hosts. También hay que comentar que para que el módulo de python "PIL" funcione
+correctamente con la generación de imagenes, previamente a su instalación, debemos crear tres enlaces. Si esto no se hace bien,
+cuando intentamos procesar el pedido, la página dará un error al crear la imagen que se enviará al repostero. También podemos observar
+que hemos usado la directiva "ignore_errors" para que si los enlaces ya existieran, no se pare ansible y siga con el resto del 
 playbook.
 
 
