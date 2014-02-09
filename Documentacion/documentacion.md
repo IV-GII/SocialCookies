@@ -254,13 +254,13 @@ con las llaves de instagram, y poder así lanzar el servidor.
 
 ![captura de las maquinas en azure](https://dl.dropboxusercontent.com/u/17453375/azure-socialcookies5.png)
 
-Podemos ver que la [aplicación](http://socialcookiesiv.cloudapp.net/socialcookies/) funciona perfectamente, aunque cerremos la terminal con la conexión ssh.
+Podemos ver que la [aplicación](http://socialcookies.cloudapp.net/socialcookies/) funciona perfectamente, aunque cerremos la terminal con la conexión ssh.
 
 
 
 ##Diseño web.
 
-Podemos acceder a la aplicación web desde este enlace [socialcookies](http://socialcookiesiv.cloudapp.net/socialcookies/) que está subida a una máquina virtual de azure. 
+Podemos acceder a la aplicación web desde este enlace [socialcookies](http://socialcookies.cloudapp.net/socialcookies/) que está subida a una máquina virtual de azure. 
 
 En el index hemos puesto un slider que contendrá diferentes fotos de galletas. Ha sido creado de forma dinámica en el "index.html", de forma que cuando se introduzcan nuevas fotos o se eliminen en el slider aparezcan correctamente sin tener que modificar el codigo.
 
@@ -387,6 +387,7 @@ una peor nota mientras que fuera te juegas tu prestigio o tu sueldo.
 
 Todos estamos de acuerdo en que hemos aprendido mas allá de las materias de las asignaturas y que está experiencia nos hace
 estar mejor preparados.
+
 
 ##Fuentes.
 
