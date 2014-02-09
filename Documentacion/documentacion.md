@@ -378,4 +378,21 @@ estar mejor preparados.
 - [http://instagram.com/developer/#](http://instagram.com/developer/#)
 
 
+## Desarrolladores
+
+* Ana belen Rodriguez Prados ([anaprados](https://github.com/anaprados))
+
+* Óscar R. Zafra Megías ([oskyar](https://github.com/oskyar))
+
+* José Miguel López Pérez ([josemlp91](https://github.com/josemlp91))
+
+* Rogelio Gil García ([rogegg](https://github.com/rogegg))
+
+* Pedro Alcalá Galiano ([pedroag](https://github.com/pedroag))
+
+* Antonio Melero Bello ([melero90](https://github.com/melero90))
+
+* Francisco Manuel Sánchez Ramos ([franciscomanuel](https://github.com/franciscomanuel))
+
+* Jaime Torres Benavente ([torresj](https://github.com/torresj))
 
